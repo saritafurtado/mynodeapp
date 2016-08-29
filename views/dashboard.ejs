@@ -1,0 +1,514 @@
+<!doctype html>
+<html>
+    <% include /common/head %>
+    <body>
+        <% include /common/loggedin_nav %> 
+        	<div id="main-content">
+		<div class="container">
+			<div class="row">
+				<div class="main-content-header">
+					<div class="col-md-2 custom-header-col-left">
+						<div class="header-profile">
+							<img src="/images/paddler-default.png" class="img-circle">
+						</div>
+					</div>
+					<div class="col-md-8 custom-header-col-right">
+						<div class="row">
+							<div class="col-md-12">
+								<h2><%= user.firstname %> <%= user.lastname %></h2>
+								<% if(user.recruit){ %><div class="label-orange">Recruit Me</div><% } %>
+							</div>
+						</div>
+						<% if(user.description){ %>
+						<div class="row">
+							<div class="col-md-12 header-description">
+								<p><%= user.description %></p>
+							</div>
+						</div>
+						<% } %>
+						<div class="row header-skills">
+							<div class="col-md-12">
+								<ul>
+									<% if(user.skill_level){ %>
+									<li>
+										<i class="ti-star"></i> 
+										<%= user.skill_level %>
+									</li>
+									 <% } %>
+									<% if(user.paddling_side){ %> 
+									<li>
+										<img src="/images/paddler-side.png">
+										<%= user.paddling_side %>
+									</li>
+									<% } %>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/main-content-header-->
+
+			<div class="row">
+				<div class="col-md-12 dashboard-content">
+					<section class="dashboard-schedule no-border">
+						<div class="content-padding">
+							<div class="row">
+								<div class="col-md-6">
+									<h3>SCHEDULE</h3>
+								</div>
+								<div class="col-md-6 text-right">
+									<a href="#" id="show-schedule-grid"><i class="ti-calendar"></i></a>
+									<a href="#" id="show-schedule-list" class="hide"><i class="ti-menu-alt"></i></a>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<div class="dashboard-schedule-nav">
+										<ul class="nav nav-pills">
+										  <li role="presentation" id="whole_schdule" class="active"><a href="#">All</a></li>
+										  <li role="presentation" id="only_practices"><a href="#">Practices</a></li>
+										</ul>
+										
+									</div>
+								</div>
+								<div class="col-md-4">
+									<ul class="dashboard-schedule-month">
+										<li>
+											<a href="#" id="prev_week"><i class="ti-angle-left"></i></a>
+										</li>
+										<li id="month_cal" class="schedule-month hide">August, 2016</li>
+										<li id="week_cal">Aug 21 - Aug 27 2016</li>
+										<li>
+											<a href="#" id="next_week"><i class="ti-angle-right"></i></a>
+										</li>
+									</ul>
+								</div>
+								<div class="col-md-4">
+									<div class="dashboard-schedule-view">
+										<ul class="nav nav-pills">
+										  <li role="presentation" id="week_events" class="active"><a href="#">Week</a></li>
+										  <li role="presentation" id="month_events"><a href="#">Month</a></li>
+										</ul>										
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<table class="table responsive-table dashboard-schedule-table">
+										<tbody>
+											
+											
+											<tr class="team_practices">
+												<td class="col-md-1">
+													<div class="schedule-date">
+														<h5>Tue</h5>
+														<p>Aug 23</p>
+													</div>
+												</td>
+												<td class="col-md-2 text-center">
+														<img src="/images/Default-Team-Images.png" class="img-circle">
+												</td>
+												<td class="col-md-9">
+													<div class="schedule-practice">
+														<h3>Liselle Team</h3>
+														<ul>
+															<li>5:00 PM (60 mins)</li>
+															<li>North</li>
+														</ul>
+													</div>
+													<input type="hidden" id="my_prac_week" value="35">
+												</td>
+											</tr>
+											
+											<tr class="team_practices">
+												<td class="col-md-1">
+													<div class="schedule-date">
+														<h5>Thu</h5>
+														<p>Aug 25</p>
+													</div>
+												</td>
+												<td class="col-md-2 text-center">
+
+													
+														<img src="/images/Default-Team-Images.png" class="img-circle">
+													
+
+												</td>
+												<td class="col-md-9">
+													<div class="schedule-practice">
+														<h3>Liselle Team</h3>
+														<ul>
+															<li>5:00 PM (60 mins)</li>
+															<li>test</li>
+														</ul>
+													</div>
+													<input type="hidden" id="my_prac_week" value="35">
+												</td>
+											</tr>
+											
+											<tr class="team_practices">
+												<td class="col-md-1">
+													<div class="schedule-date">
+														<h5>Fri</h5>
+														<p>Aug 26</p>
+													</div>
+												</td>
+												<td class="col-md-2 text-center">
+
+													
+														<img src="/images/Default-Team-Images.png" class="img-circle">
+													
+
+												</td>
+												<td class="col-md-9">
+													<div class="schedule-practice">
+														<h3>Liselle Team</h3>
+														<ul>
+															<li>1:00 PM (60 mins)</li>
+															<li>Testing</li>
+														</ul>
+													</div>
+													<input type="hidden" id="my_prac_week" value="35">
+												</td>
+											</tr>
+											
+										</tbody>
+									</table>
+									<input type="hidden" id="snweek_num">
+									<input type="hidden" id="snyear_num">
+									<input type="hidden" id="schedule_date" value="Thu Aug 25 2016 11:23:46 GMT+0530 (IST)">
+									<div class="team-schedule-grid hide">
+										<div id="calendar-schedule" class="fc fc-ltr fc-unthemed"><div class="fc-toolbar"><div class="fc-left"><h2>&nbsp;</h2></div><div class="fc-right"><button type="button" class="fc-today-button fc-button fc-state-default fc-corner-left fc-corner-right">today</button><div class="fc-button-group"><button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left"><span class="fc-icon fc-icon-left-single-arrow"></span></button><button type="button" class="fc-next-button fc-button fc-state-default fc-corner-right"><span class="fc-icon fc-icon-right-single-arrow"></span></button></div></div><div class="fc-center"></div><div class="fc-clear"></div></div><div class="fc-view-container"><div class="fc-view fc-basicWeek-view"></div></div></div>
+									</div>
+								</div>
+							</div>
+
+						</div>				
+					</section>
+					
+					<section class="row dashboard-bottom-section">
+						<div class="col-md-4 dashboard-bottom">
+							<div class="content-padding">
+								<div class="row">
+									<div class="col-md-4">
+										<h3>TEAMS</h3>
+									</div>
+									<div class="col-md-8">
+										<div class="dashboard-nav-pills">
+											<ul class="nav nav-pills">
+											  <li role="presentation" id="myteams" class="active"><a href="#">I Manage</a></li>
+											  <li role="presentation" id="allteams"><a href="#">I'm On</a></li>
+											  
+											  <li><a href="/create-team" class="dashboard-add-btn"><i class="ti-plus"></i></a></li>
+											  
+											</ul>
+											
+										</div>
+									</div>
+								</div>
+								<!-- {{#if Template.subscriptionsReady}} -->
+									
+										
+										<div class="row my_teams">
+											<div class="col-md-3">
+												
+												<img src="/images/Default-Team-Images.png" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/team-view/liselle-team">Liselle Team</a></h3>
+												<ul class="dashboard-team-members">
+													<li>Goa, India</li>
+													<li>3 members</li>
+												</ul>
+											</div>
+										</div>
+										
+										<div class="row my_teams">
+											<div class="col-md-3">
+												
+												<img src="/images/Default-Team-Images.png" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/team-view/dccper-team">DCCPER Team</a></h3>
+												<ul class="dashboard-team-members">
+													<li>Goa, India</li>
+													<li>1 members</li>
+												</ul>
+											</div>
+										</div>
+										
+									  
+									
+										
+										<div class="row mem_teams hide">
+											<div class="col-md-3">
+												
+													<img src="https://gushou-image.s3-us-west-2.amazonaws.com/images/20160421044153_soccer_team_logo_by_virben.jpg" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/team-view/testing">testing</a></h3>
+												<ul class="dashboard-team-members">
+													<li>Alberta, canada</li>
+													<li>1 members</li>
+												</ul>
+											</div>
+										</div>
+										
+									
+									
+										
+									
+								<!-- {{else}}
+									Loading....
+								{{/if}} -->
+							</div>
+						</div>
+						<div class="col-md-4 dashboard-bottom">
+							<div class="content-padding">
+								<div class="row">
+									<div class="col-md-8">
+										<h3>EVENTS</h3>
+									</div>
+									
+									<div class="col-md-4 text-right">
+										<a href="/create-event" class="dashboard-add-btn"><i class="ti-plus"></i></a>
+										
+									</div>
+									
+								</div>
+								<!-- {{#if Template.subscriptionsReady}} -->
+									
+										
+										<div class="row user-events">
+											<div class="col-md-3">
+												
+													<img src="/images/Default-Event-Images.png" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/event-view/wiki-wiki-waa-outrigger-toronto">Wiki Wiki Waa Outrigger</a></h3>
+												<p> ON,  Canada</p>
+											</div>
+										</div>
+										
+										<div class="row user-events">
+											<div class="col-md-3">
+												
+													<img src="/images/Default-Event-Images.png" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/event-view/goa-dragon-boating-margao">Goa Dragon Boating</a></h3>
+												<p> Goa,  India</p>
+											</div>
+										</div>
+										
+										<div class="row user-events">
+											<div class="col-md-3">
+												
+													<img src="/images/Default-Event-Images.png" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/event-view/my-test-event-margao">My test event</a></h3>
+												<p> Goa,  India</p>
+											</div>
+										</div>
+										
+										<div class="row user-events">
+											<div class="col-md-3">
+												
+													<img src="/images/Default-Event-Images.png" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/event-view/sunnyside-paddling-club-3-margao">Sunnyside Paddling Club 3</a></h3>
+												<p> Goa,  India</p>
+											</div>
+										</div>
+										
+										<div class="row user-events">
+											<div class="col-md-3">
+												
+													<img src="/images/Default-Event-Images.png" class="img-circle">
+												
+											</div>
+											<div class="col-md-9">
+												<h3><a href="/event-view/indoor-dragon-boat-festival-winnipeg">Indoor Dragon Boat Festival</a></h3>
+												<p> Manitoba,  Canada</p>
+											</div>
+										</div>
+										
+									
+									
+										<div class="row">
+											<div class="col-md-12">
+												<a href="/events-all" class="btn btn-phantom-green btn-fullwidth">View all</a>
+											</div>
+										</div>
+									
+								<!-- {{else}}
+									Loading....
+								{{/if}} -->
+							</div>
+						</div>
+						<div class="col-md-4 dashboard-notifications">
+							<div class="content-padding">
+								<div class="row">
+									<div class="col-md-12">
+										<h3>NOTIFICATIONS</h3>
+									</div>
+								</div>
+								
+									
+										
+											
+											
+											
+											
+											
+											
+												<div class="row">
+													<div class="col-md-3">
+														<img src="/images/user-default.png" class="img-circle">
+													</div>
+													<div class="col-md-9">
+														<p>
+																	<a href="http://52.39.156.223/event-view/22-vets-mississauga">22 Vets</a>  event is created 
+														</p>
+														<p></p>
+														<p class="small">Thu Aug 18 2016, 8:37 PM</p>
+
+													</div>
+												</div>
+											
+											<input type="hidden" id="hdn_event_id_i7ZWuzf2mf8rs8QiS" value="D2qGpG9JfbKmK8GDc">
+											<input type="hidden" id="hdn_team_id_i7ZWuzf2mf8rs8QiS">
+											<input type="hidden" id="hdn_rec_id_i7ZWuzf2mf8rs8QiS" value="Zw2rAH2s4YnmJvnXc">
+											<input type="hidden" id="hdn_init_id_i7ZWuzf2mf8rs8QiS" value="GBASdtdnriFFh7hPi">
+										
+											
+											
+											
+											
+											
+											
+												<div class="row">
+													<div class="col-md-3">
+														<img src="/images/user-default.png" class="img-circle">
+													</div>
+													<div class="col-md-9">
+														<p>
+																	<a href="http://52.39.156.223/event-view/the-floridians-miami-beach">The Floridians</a>  event is created 
+														</p>
+														<p></p>
+														<p class="small">Tue Aug 16 2016, 7:06 PM</p>
+
+													</div>
+												</div>
+											
+											<input type="hidden" id="hdn_event_id_sGDt4j7r7fdypdqR3" value="REtAxGpLCRR4jSthF">
+											<input type="hidden" id="hdn_team_id_sGDt4j7r7fdypdqR3">
+											<input type="hidden" id="hdn_rec_id_sGDt4j7r7fdypdqR3" value="Zw2rAH2s4YnmJvnXc">
+											<input type="hidden" id="hdn_init_id_sGDt4j7r7fdypdqR3" value="Ln4zGRvSpbS7jZn6W">
+										
+											
+											
+											
+											
+											
+											
+												<div class="row">
+													<div class="col-md-3">
+														<img src="/images/user-default.png" class="img-circle">
+													</div>
+													<div class="col-md-9">
+														<p>
+																	Monasha Shirgaoncar has accepted your request to join <a href="http://52.39.156.223/team-view/liselle-team">Liselle Team</a>. 
+														</p>
+														<p></p>
+														<p class="small">Thu Aug 11 2016, 10:20 AM</p>
+
+													</div>
+												</div>
+											
+											<input type="hidden" id="hdn_event_id_4boyrxfmpffeXbWab">
+											<input type="hidden" id="hdn_team_id_4boyrxfmpffeXbWab">
+											<input type="hidden" id="hdn_rec_id_4boyrxfmpffeXbWab" value="Zw2rAH2s4YnmJvnXc">
+											<input type="hidden" id="hdn_init_id_4boyrxfmpffeXbWab" value="jMYYqvMmc5HtbYpFv">
+										
+											
+											
+											
+											
+											
+											
+												<div class="row">
+													<div class="col-md-3">
+														<img src="https://gushou-image.s3-us-west-2.amazonaws.com/images/57.jpg" class="img-circle">
+													</div>
+													<div class="col-md-9">
+														<p>
+																	<a href="http://52.39.156.223/event-view/wiki-wiki-waa-outrigger-toronto">Wiki Wiki Waa Outrigger</a> has been updated. 
+														</p>
+														<p></p>
+														<p class="small">Tue Aug 09 2016, 3:29 PM</p>
+
+													</div>
+												</div>
+											
+											<input type="hidden" id="hdn_event_id_zPc57q6BnJ5raJTqe" value="eKBXkNAtMRWQg8osE">
+											<input type="hidden" id="hdn_team_id_zPc57q6BnJ5raJTqe">
+											<input type="hidden" id="hdn_rec_id_zPc57q6BnJ5raJTqe" value="Zw2rAH2s4YnmJvnXc">
+											<input type="hidden" id="hdn_init_id_zPc57q6BnJ5raJTqe" value="Zw2rAH2s4YnmJvnXc">
+										
+											
+											
+											
+											
+											
+											
+												<div class="row">
+													<div class="col-md-3">
+														<img src="https://gushou-image.s3-us-west-2.amazonaws.com/images/57.jpg" class="img-circle">
+													</div>
+													<div class="col-md-9">
+														<p>
+																	New post on discussion board, <a href="http://52.39.156.223/team-view/liselle-team">Liselle Team</a>. 
+														</p>
+														<p></p>
+														<p class="small">Tue Aug 09 2016, 12:46 PM</p>
+
+													</div>
+												</div>
+											
+											<input type="hidden" id="hdn_event_id_JqGHLoCQ9nHbFE33A">
+											<input type="hidden" id="hdn_team_id_JqGHLoCQ9nHbFE33A" value="2zc8auZAjeX53Gxxr">
+											<input type="hidden" id="hdn_rec_id_JqGHLoCQ9nHbFE33A" value="Zw2rAH2s4YnmJvnXc">
+											<input type="hidden" id="hdn_init_id_JqGHLoCQ9nHbFE33A" value="Zw2rAH2s4YnmJvnXc">
+										
+									
+									
+									<div class="row">
+										<div class="col-md-12">
+											<a href="/notifications-all" class="btn btn-phantom-green btn-fullwidth">View all</a>
+										</div>
+									</div>
+									
+								
+							</div>
+						</div><!--/dashboard-notifications-->
+					</section>
+				</div>
+				
+			</div>
+		</div><!--/container-->
+	</div><!--main-content-->
+       	<% include /common/footer %>
+       </body>
+</html>

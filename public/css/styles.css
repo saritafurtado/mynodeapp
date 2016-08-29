@@ -1,0 +1,691 @@
+/*.save {
+background: none;
+border:0;
+color: #bf5523;
+margin: 20px 0;
+}
+*/
+.no-display{
+display: none;
+}
+.border-transparent {
+border: 1px solid transparent !important;
+border-right: 1px solid #ddd !important;
+}
+
+.main_title{
+margin-top: 30px;
+}
+
+#insertAnnouncement .select{
+width: 110px;
+}
+
+.logo-size{
+width: 200px;
+height: 200px;
+}
+
+.my-team-addition li:first-child{
+border: none;
+}
+
+#summarylist{
+display:none;
+}
+
+.roster-img, .roster-name{
+min-height: 0px !important;
+}
+
+.not-active {
+color: #EACDBF;
+pointer-events: none;
+cursor: default;
+}
+
+.recruit{
+color: #EACDBF;
+pointer-events: none;
+cursor: default;
+}
+
+.load-more img {
+cursor: pointer;
+}
+
+.btnsaved{
+background-color: #8dc63f;  
+}
+
+.btnsaved:hover, .btnsaved:focus{
+background-color: #8dc63f;  
+}
+
+.statusSave{
+display:none;
+padding: 5px 20px;
+background-color: #8dc63f;  
+}
+
+.statusSave:hover, .statusSave:focus{
+display:none;
+padding: 5px 20px;
+background-color: #8dc63f;  
+}
+
+.red-box .white-box {
+border: 1px solid white;
+}
+
+/*#captainNoteId thead, #teamsSettingsId thead, #announcementSId thead, #eventSettingId thead, #paddlerSId thead{
+display: none;
+}*/
+.clearfix{
+  display:none;
+}
+
+#captainNoteId td, #announcementSId td, #eventSettingId td, #teamsSettingsId td, #paddlerSId td{
+border-top: 0px;
+/*padding: 0px;*/
+}
+
+.race-list-date {
+margin-bottom: 30px !important;
+}
+
+.map-container {
+width: 100%;
+max-width: 100%;
+height: 300px;
+}
+
+#savingSpinner, #savingDisc, #savingContact, #savingReply, #savingProfile, #savingLogin, 
+#savingRegister, #savingComplRegister, #savingRegisterTeam, #savingPaddlersProfile, #savingEvent, #savingClub, #savingForgotPswd{
+display:none;
+}
+
+#registerForm {
+float: left;
+width: 100%;
+}
+
+.sponsor span img {
+width: 25px;
+position: absolute;
+top: 5px;
+right: 5px;
+}
+
+.center_align{
+text-align: center;
+}
+
+.center_align i {
+cursor: pointer;
+}
+
+#formPricing1 input{
+border-radius: 0;
+box-shadow: none;
+border: 1px solid #b2b2b2;
+color: #595959;
+}
+
+#formPricing1 select{
+border-radius: 0;
+box-shadow: none;
+border: 1px solid #b2b2b2;
+color: #595959;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+width: 100%;
+}
+
+
+#formPricing1 button{
+
+}
+
+.button-cancel{
+background: #595959;
+color: #fff;
+padding: 0 30px;
+border: 0;
+border-radius: 3px;
+}
+
+.form-button-align{
+text-align: right;
+margin-bottom: 20px;
+}
+
+#insertPricing, #updatePricing, #updatePricingPracts, #insertPricingOthers, #updatePricingOthers, #insertClubPricing, #updateClubPricing{
+display: none;
+}
+
+.create-event-radio input{
+height: 25px;
+display: inline;
+width: 100%;
+margin-left: -42px !important;
+}
+
+.create-event-radio label{
+font-size: 24px;
+}
+
+.orange-dollar{
+color: #ddbd8d;
+font-size:36px !important;
+border: none;
+}
+
+.additional-input-brown{
+border: 1px solid #82612F !important;
+background-color: #f5ebdd;
+}
+
+.create-event-other img{
+height: 50px;
+}
+
+.create-event-other input{
+max-width: 100% !important;
+}
+
+
+.create-event-other .input-group{
+width: 100% !important;
+}
+
+.create-event-bottom-space{
+margin-bottom: 30px;
+}
+
+.add-more-small{
+height: 30px;
+}
+
+/*.-autocomplete-item{
+background-color: #d2dae3;
+}
+*/
+
+
+#event_bird_date input{
+border-radius: 0px;
+box-shadow: none;
+border: 1px solid #B2B2B2;
+color: #595959;
+}
+
+#event_bird_date #edit{
+cursor: pointer;
+}
+
+#event_bird_date #save, #seb_date_td, #eb_date_td, #rb_date_td{
+display: none;
+}
+
+.division-rows {
+-webkit-column-count: 2;
+-moz-column-count: 2;
+column-count: 2;
+}
+/*.division-rows li {
+padding: 3px 13px !important;
+}*/
+
+#insertAnnouncement .select {
+display: inline-block;
+height: 26px;
+font-size: 14px;
+border-radius: 0px;
+transition: none 0s ease 0s;
+background: transparent url("/images/down-arrow.png") no-repeat scroll right center;
+-moz-appearance: none;
+cursor: pointer;
+box-shadow: none;
+border: 0px none;
+color: #BF5523;
+padding: 6px 12px;
+padding-top: 0px;
+}
+
+.team-schedule-dropdown-content, #practise_save{
+display:none;
+}
+
+input[type='number'] {
+-moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+}
+
+.create-event-content #seb_date:disabled, .create-event-content #eb_date:disabled, .create-event-content #r_date:disabled{
+background-color:rgb(213, 212, 212);
+border: 1px solid #808080;
+}
+
+#perinfo{
+border: 1px solid #CCC;
+height: 200px;
+padding: 20px;
+background-color: rgba(248, 244, 244, 0.47);
+}
+
+#perinfo p{
+font-family: inherit;
+font-size: 14px;
+line-height: inherit;
+text-align: left;
+}
+
+#forgotPassword{
+display:none;
+}
+
+select#currency{
+width: 105px;
+}
+
+#joinTeam {
+display: inline-block;
+cursor:pointer;
+}
+
+#annSdiv .reactive-table-navigation{
+padding: 0px 15px;
+}
+
+/*#forgotPasswordForm{
+display:none;
+}*/
+
+.create-event-division-rows input[type="checkbox"] {display:none;}
+
+#updateTeamClsDivs, #updateEventClsDivs{
+display:none;
+}	
+.class84{
+max-height: 84px!important;
+}
+
+.span_li{
+padding-left: 30px;
+}
+
+#rosterTable thead tr th {
+border-bottom: 0px !important;
+border-top: 1px solid #ddd !important;
+background: #ededed ;
+}
+#rosterTable tbody tr td {
+border-top: 0px !important;
+}
+
+#bsignin{
+background: #BF5523 none repeat scroll 0% 0%;
+color: #FFF;
+border: 0px none;
+font-family: "PT Sans",sans-serif;
+padding: 12px 30px;
+margin-top: -12px;
+}
+
+/*#tshirt_size{
+border: 1px solid #C75D2B;
+padding: 10px 0px;
+width: 100%;
+text-align: center;
+}*/
+
+#PaddlersProfileSettingForm #err_msgs, #PaddlersProfileSettingForm #succ_msgs{
+padding-top: 0px;
+margin-top: 0px;
+}
+
+.ce_bg{
+float: left;
+width: 100%;
+height: 30px;
+margin-top: -175px;
+top: 0;
+left: 0;
+text-align: right;
+}
+
+#roster-tooltip div{
+font-size: 14px !important;
+}
+
+body{
+padding-right:0px!important;
+}
+
+body.modal-open {
+overflow-y: scroll;
+}
+
+#sign-in{
+overflow: hidden!important
+}
+
+#termsConditionModal {
+overflow: hidden;
+}
+
+#rosterTable thead{
+border-bottom: 1px solid #DDD;
+}
+
+.sortable i {
+    display: none;
+}
+
+@media only screen and (min-width:570px){
+.size120{
+width: 120px;
+}
+
+.size110{
+width: 110px;
+}
+.size200{
+width: 200px;
+}
+
+.size130{
+width: 130px;
+}
+}
+
+.team-discussions form textarea{
+border: 1px solid #222!important;
+}
+
+.waiverEventlogo{
+max-height: 160px;
+width: auto;
+}
+
+#bwupload, #bwuploadT{
+padding: 6px!important;
+}
+
+#pricingSId{
+margin-bottom: 0px;
+}
+
+/*#bird_date_form{
+float: right;
+width: 380px;
+}
+*/
+
+.small-text{
+font-size: 14px;
+}
+
+.small-text i {
+color: #fff;
+}
+
+.small-text a {
+padding-right: 10px;
+}
+
+.text-right{
+text-align: right;
+}
+
+.text-left{
+text-align: left;
+}
+
+.text-center{
+text-align: center;
+}
+
+#pPolicy, #termsConditionId,#new_register, #new_login{
+cursor: pointer;
+}
+
+.footer.small {
+height: 60px;
+padding-top: 20px;
+}
+
+#betaImg{
+position: fixed; 
+top: 0px; 
+border: 0px 
+none; 
+z-index: 999; 
+height: 90px;
+left: 0px;
+}
+
+#team_join_invite p {
+display: block;
+}
+
+
+
+/* password strength */
+#pswd input {
+  border-right: 0;
+}
+
+#pswd input:focus + .input-group-addon {
+  background: #e6e8e7;
+  border-color: #297560;
+}
+
+.pswdstrength {
+    position: absolute;
+    right: 30px;
+    z-index: 10;
+    top: 13px;  
+}
+.strength_meter{
+	height:23px;
+  padding: 0 10px;
+	
+}
+.strength_meter div{
+	height:23px;
+	width:100%;
+	height:23px;
+  font-size: 12px;
+	text-align:center;
+	color:#bf5523;
+	line-height:23px;
+  text-transform: uppercase;
+}
+.veryweak{
+	background-color: transparent;
+border-color: transparent!important;
+  color: #F04040!important;
+}
+.weak{
+  background-color: transparent;
+  border-color: transparent!important;
+  color: #bf5523!important;
+}
+.medium{
+background-color: transparent;
+border-color: transparent!important;
+color: #FC0!important;
+}
+.strong{
+background-color:transparent;
+border-color: transparent!important;
+color: #2a7560!important;
+}
+/* password strength end */
+
+/*#delete_team, #delete_event{
+	position: absolute;
+   right: 0;
+   bottom: 0;
+}*/
+
+.small-text.ptag{
+	display: inline-block;
+	padding-right: 10px;
+}
+
+#accpetWaiverForm label{
+	color: #595959;
+}
+
+/*#email{
+	text-transform: lowercase;
+}*/
+
+#email::-moz-placeholder { /* Firefox 19+ */
+  text-transform: none;
+}
+#email::-webkit-input-placeholder {
+  text-transform: none;
+}
+#email:-ms-input-placeholder {
+  text-transform: none;
+}
+#email:-moz-placeholder { /* Firefox 18- */
+  text-transform: none;
+}
+
+.progress{
+	margin: 20px 0;
+	width: 100%;
+}
+
+.progress-bar .sr-only {
+   position: static;
+   width: 100%;
+   height: 20px;
+   margin: -1px;
+   padding: 0px;
+   overflow: visible;
+   clip: rect(0px, 0px, 0px, 0px);
+   border: 0px none;
+   display: block;
+   color: #fff;
+}
+
+.image-size{
+	margin: 15px 0px;
+    float: left;
+    /*min-width: 425px;*/
+}
+
+/* li#week_cal {
+    width: 272px;
+}
+ */
+#pageLoadModal{
+	display: block;
+}
+
+#loading-spinner{
+    position: fixed;
+    z-index: 1000;
+    height: 100px;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    /*background: url(/link/to/your/image);
+    background-size: 100%;*/
+}
+
+#loading-spinner:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+#connection-lost-banner:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.efilter.nav{
+      padding: 0px;
+}
+/*.froala-box{
+    border: 1px solid #222!important;
+    height: 100px;
+    margin-bottom: 20px;
+    box-shadow: none !important;
+    border-radius: 0;
+    max-width: 100%;
+}*/
+/*#practice_note{
+    padding: 10px;
+    height: 100px;
+}*/
+
+/*.froala-editor{
+  display:none !important;
+}*/
+
+/*.froala-element.f-basic {
+    padding: 10px;
+    height: 100px;
+}*/
+.note-editable{
+  height: 50px !important;
+}
+
+.holiday {
+    background-color: pink!important;
+}
+
+select#reg_team{
+  width: 100% !important;
+}
+
+
+.events-calendar-schedule,
+.events-calendar-schedule div,
+.events-calendar-schedule span {
+  background-color: #BF5523; /* background color */
+  border-color: #BF5523;     /* border color */
+  color: #fff;           /* text color */
+}
+
+.team-practice-calendar-schedule,
+.team-practice-calendar-schedule div,
+.team-practice-calendar-schedule span {
+  background-color: #297560; /* background color */
+  border-color: #297560;     /* border color */
+  color: #fff;           /* text color */
+}
+
+.empty-err {
+    border: 1px solid #B40000!important;
+}
+
+.modal-loader{
+      z-index: 1050 !important;
+}

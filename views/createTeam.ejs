@@ -1,0 +1,418 @@
+<% include /common/header %>
+	<div id="wrapper">
+			<div class="page-header"> 
+				<div class="container">
+					<section class="header-title">
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<h1 class="inverted">Create a Team</h1>
+							</div>
+						</div>
+					</section><!--/header-title-->
+				</div>
+			</div><!--/page-header-->
+			<% if (userActivity.indexOf('Team Management') > -1){ %>
+			<form method="post" id="createTeamForm" action="/create-team">
+				<div id="create-team-1" class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+							<div class="panel create-body-fullwidth panel-default create-box">
+								<div class="panel-head">
+									<h2>Step 1 of 3</h2>
+								</div>
+
+								<div class="panel-body">
+										<div id="create_err_step1" class=""></div>
+										<div class="create-box-section">
+											<div class="row">
+												<div class="col-md-12">
+													<p>By creating a team profile, you will be the <strong>Team Captain</strong> and will have the ablity to edit and manage your team. You can also assign others as co-captains.</p>
+													<div class="form-group">
+													    <label>What is your team name? <span class="red-star">*</span></label>
+													    <span id="team_name_err" class="error-message hide"></span>
+													    <input type="text" class="form-control required"  placeholder="Team name" id="team_name" name="team_name" autofocus>
+													</div>
+													<div class="form-group">
+														<input type="text" class="form-control"  placeholder="Sponsor / Organization's name" id="team_sponsor" name="team_sponsor">
+													</div>
+												</div>
+											</div>
+										</div><!--/create-box-section-->
+										<div class="create-box-section">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group" id="create-teamlocation">
+													    <label>Where is your team located? <span class="red-star">*</span></label>
+													    <input type="text" class="form-control required" id="city" name="city" placeholder="Location (city)">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group" id="create-teamprovince">
+													    <input type="text" class="form-control required" id="province" name="province" placeholder="Province">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group" id="create-teamcountry">
+													    <input type="text" class="form-control required" id="country" name="country" placeholder="Country">
+													</div>
+												</div>
+											</div>
+										</div><!--/create-box-section-->
+										<div class="create-box-section-footer">
+											<div class="row">
+												<div class="col-md-12">
+													<input type="button" value="Continue" id="submit_step1" class="btn btn-phantom-green btn-fullwidth">
+												</div>
+											</div>
+										</div><!--/create-box-section-->
+								</div><!--/panel body-->
+							</div><!--/panel-->
+						</div>
+					</div>
+				</div><!--/container-->
+				<div id="create-team-2" class="container hide">
+					<div class="row">
+						<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+							<div class="panel create-body-fullwidth panel-default create-box">
+								<div class="panel-head">
+									<a href="#" id="backto_step1"><i class="ti-arrow-left back"></i></a>
+									<h2>Step 2 of 3</h2>
+								</div>
+
+								<div class="panel-body">
+									<div id="create_err_step2" class=""></div>
+									<div class="create-box-section">
+										<span id="class_div_err" class="error-message hide"></span>
+										<p class="label-bold">What classes are represented on your team? <span class="red-star">*</span></p>
+										<div class="table-fullwidth">
+											<table class="table class-listing-list table-striped responsive-table class-listing-table">
+												<thead class="mixed-padding-r">
+													<tr>
+														<th class="col-md-7"></th>
+														<% teamClasses.forEach(function(doc){ %>
+														<th class="col-md-2 text-center"><%= doc.name %></th>
+														<% }); %>
+													</tr>
+												</thead>
+												<tbody>
+													<% divisions.forEach(function(form){ %>
+													<tr>
+														<td><%= form.div_name %></td>
+														<% teamClasses.forEach(function(doc){ %>
+														<td>
+															<div class="md-checkbox all-divisions">
+									                           	<input id="<%= doc.value %>_<%= form.value %>"  name="<%= doc.value %>_team_divisions[]" value="<%= form.value %>" class="md-check all-divisions" type="checkbox">
+									                           	<label for="<%= doc.value %>_<%= form.value %>">
+									                            	<span class="check"></span>
+									                            	<span class="box"></span>
+									                            </label>
+									                       </div>
+														</td>
+														<% }); %>
+													</tr>
+													<% }); %>
+
+												</tbody>
+											</table>
+										</div>
+
+									</div><!--/create-box-section-->
+
+									<div class="create-box-section-footer">
+										<div class="row">
+											<div class="col-md-12">
+												<input type="button" value="Continue" id="submit_step2" class="btn btn-phantom-green btn-fullwidth">
+											</div>
+										</div>
+									</div><!--/create-box-section-->
+								</div><!--/panel body-->
+							</div><!--/panel-->
+						</div>
+					</div>
+				</div><!--/container-->
+				<div id="create-team-3" class="container hide">
+					<div class="row">
+						<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+							<div class="panel create-body-fullwidth panel-default create-box">
+								<div class="panel-head">
+									<a href="#" id="backto_step2"><i class="ti-arrow-left back"></i></a>
+									<p class="small">Optional</p>
+									<h2>Step 3 of 3</h2>
+								</div>
+
+								<div class="panel-body">
+									<span id="team_err" class="error-message hide"></span>
+									<div class="create-team-box-section">
+										<div class="row">
+											<div class="col-md-12">
+												<p class="label-bold">Provide contact information for your participants</p>
+												
+												<div class="row equal">
+														<div class="col-xs-2 col-md-1 vertical-center">
+															<i class="ti-twitter-alt"></i>
+														</div>
+														<div class="col-xs-10 col-md-11">
+															<span id="twitter_err" class="error-message hide"></span>
+															<div class="input-group">
+															  <span class="input-group-addon">@</span>
+															  <input type="text" id="team_twitter" class="form-control" placeholder="username">
+															</div>
+														</div>
+												</div>
+												<div class="row equal">
+													<div class="col-xs-2 col-md-1 vertical-center">
+														<i class="ti-facebook"></i>
+													</div>
+													<div class="col-xs-10 col-md-11">
+														<span id="fb_err" class="error-message hide"></span>
+														<div class="input-group">
+														  <span class="input-group-addon">facebook.com/</span>
+														  <input type="text" id="team_facebook" class="form-control" placeholder="username">
+														</div>
+													</div>
+												</div>
+												<div class="row equal">
+														<div class="col-xs-2 col-md-1 vertical-center">
+															<i class="ti-youtube"></i>
+														</div>
+													<div class="col-xs-10 col-md-11">
+													<span id="youtube_err" class="error-message hide"></span>
+														<div class="input-group">
+														  <span class="input-group-addon">youtube.com/</span>
+														  <input type="text" id="team_youtube" class="form-control" placeholder="username">
+														</div>
+													</div>
+												</div>
+												<div class="row equal">
+													<div class="col-xs-2 col-md-1 vertical-center">
+														<i class="fa fa-phone"></i>
+													</div>
+													<div class="col-xs-10 col-md-11">
+														<span id="phone_err" class="error-message hide"></span>
+											    		<input type="tel" id="team_phone_number" class="form-control" placeholder="123-456-7890">
+													</div> 
+												</div>
+
+												<div class="row equal">
+													<div class="col-xs-2 col-md-1 vertical-center">
+														<i class="ti-email"></i>
+													</div>										
+													<div class="col-xs-10 col-md-11">
+														<span id="email_err" class="error-message hide"></span>
+													    <input id="team_email" class="form-control" placeholder="example@example.com">
+													</div> 
+												</div>
+												<div class="row equal">
+													<div class="col-xs-2 col-md-1 vertical-center">
+														<img src="/images/web.png">
+													</div>
+													<div class="col-xs-10 col-md-11">
+														<span id="website_err" class="error-message hide"></span>
+												    	<input type="text" id="team_website" class="form-control" placeholder="www.example.com" autofocus>
+												    </div>
+												</div>
+
+											</div>
+										</div>
+										
+									</div><!--/create-box-section-->
+
+									<div class="create-box-section-footer">
+										<div class="row">
+											<div class="col-md-12">
+												<input type="submit" id="submitCreateTeam" value="Create team" class="btn btn-primary btn-fullwidth">
+											</div>
+										</div>
+									</div><!--/create-box-section-->
+								</div><!--/panel body-->
+							</div><!--/panel-->
+						</div>
+					</div>
+				</div><!--/container-->
+			</form>
+			<% }
+			else{ %>
+				<div id="create-team-1" class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+							<div class="panel panel-default create-box">
+								<div class="panel-head">
+									<label class="create-permissions error">You do not have permission to create a team yet. You will need to select your profile settings in the top right corner and include 'Team Captain' under Activities.</label>
+									<a href="/profile-settings" class="btn btn-primary">Go to Profile Settings</a>
+								</div>
+
+								<div class="panel-body">
+								</div><!--/panel body-->
+							</div><!--/panel-->
+						</div>
+					</div>
+				</div>
+			<% } %>
+	</div>
+	<script>
+	$('#submit_step1').click(function(){
+        var isFormValid = true;
+        $("#create-team-1 input.required").each(function(){
+	        if ($.trim($(this).val()).length == 0){
+	            $(this).addClass("empty-err");
+	            isFormValid = false;
+	        }
+	        else{
+	            $(this).removeClass("empty-err");
+	        }
+	    });
+
+    	if (!isFormValid) {
+    		$('#create_err_step1').html("Enter fields marked in red");
+            $('#create_err_step1').addClass('alert alert-danger');
+    		return false;
+    	}else{
+    		$("#create-team-1").toggleClass("hide"); 
+			$("#create-team-2").toggleClass("hide"); 
+    	}		
+	});
+
+	$('#submit_step2').click(function(){
+		$(window).scrollTop(0);
+		var mdivisions = [];
+		var wdivisions = [];
+		var mxdivisions = [];
+		var $m_divisions = $("input[type=checkbox][name='M_team_divisions[]']:checked");
+		if ($m_divisions.length) {
+			mdivisions = $m_divisions.map(function(){
+				return this.value;
+			}).get();
+		}
+		var $w_divisions = $("input[type=checkbox][name='W_team_divisions[]']:checked");
+		if ($w_divisions.length) {
+			wdivisions = $w_divisions.map(function(){
+				return this.value;
+			}).get();
+		}
+		var $mx_divisions = $("input[type=checkbox][name='MX_team_divisions[]']:checked");
+		if ($mx_divisions.length) {
+			mxdivisions = $mx_divisions.map(function(){
+				return this.value;
+			}).get();
+		}
+
+		if($m_divisions.length>0 || $w_divisions.length>0 || $mx_divisions.length>0){
+			$("#create-team-3").toggleClass("hide"); 
+			$("#create-team-2").toggleClass("hide"); 
+		}
+		else{
+			$('#create_err_step2').addClass('alert alert-danger');
+			$('#create_err_step2').html("Please select the class(es) that apply to your team.");
+			return false;
+		}
+	});
+
+	$('#submit_step3').click(function(e){
+		e.preventDefault();
+		var mdivisions = [];
+		var wdivisions = [];
+		var mxdivisions = [];
+		var classes = [];
+		var data = {};
+		var team_name = jQuery.trim($('#team_name').val());
+        var sponsor = jQuery.trim($('#team_sponsor').val());
+        var city = jQuery.trim($('#team_city').val());
+        var province = jQuery.trim($('#team_province').val());
+        var country = jQuery.trim($('#team_country').val());
+        var $m_divisions = $("input[type=checkbox][name='M_team_divisions[]']:checked");
+		if ($m_divisions.length) {
+			mdivisions = $m_divisions.map(function(){
+				return this.value;
+			}).get();
+			classes.push('M');
+		}
+		var $w_divisions = $("input[type=checkbox][name='W_team_divisions[]']:checked");
+		if ($w_divisions.length) {
+			wdivisions = $w_divisions.map(function(){
+				return this.value;
+			}).get();
+			classes.push('W');
+		}
+		var $mx_divisions = $("input[type=checkbox][name='MX_team_divisions[]']:checked");
+		if ($mx_divisions.length) {
+			mxdivisions = $mx_divisions.map(function(){
+				return this.value;
+			}).get();
+			classes.push('MX');
+		}
+		if (classes.length) {
+			var classes_divs = $.map(classes, function(val){
+				if(val=="M" && mdivisions.length>0){
+					return divs={
+						"class":val,
+						"div":mdivisions
+					}
+				}
+				if(val=="W" && wdivisions.length>0){
+					return divs={
+						"class":val,
+						"div":wdivisions
+					}
+				}
+				if(val=="MX"  && mxdivisions.length>0){
+					return divs={
+						"class":val,
+						"div":mxdivisions
+					}
+				}
+			});
+		}
+		var array3 = mdivisions.concat(wdivisions);
+		var all_divs = array3.concat(mxdivisions);
+		var uniqueDivs = [];
+		$.each(all_divs, function(i, el){
+		    if($.inArray(el, uniqueDivs) === -1) uniqueDivs.push(el);
+		});
+		var team_phone = $('#team_phone_number').val();
+		var team_email = $('#team_email').val();
+		var team_facebook = $('#team_facebook').val();
+		var team_twitter = $('#team_twitter').val();
+		var team_website = $('#team_website').val();
+		var team_youtube = $('#team_youtube').val();
+        
+        data.team_name = team_name;
+        data.sponsor = sponsor;
+        data.city = city;
+        data.province = province;
+        data.country = country;
+		$.ajax({
+            url: '/create-team',
+            data: data,
+            type: 'POST',
+            dataType: 'json',
+            success: function (data) {
+                var response = data.message;
+                var error_message = "";
+                console.log(response)
+                if($.isArray(response)){
+                    response.forEach(function(doc){
+                        error_message = error_message + doc.msg + "<br>";
+                    });
+                    $('#reg_err_step1').html(error_message);
+                    $('#reg_err_step1').addClass('alert alert-danger');
+                }
+                else if(response != "success"){
+                    error_message = response;
+                    $('#reg_err_step1').html(error_message);
+                    $('#reg_err_step1').addClass('alert alert-danger');
+                }
+                else{
+                    $('#step1').addClass('hide');
+                    $('#step2').removeClass('hide'); 
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log('Error: ' + JSON.stringify(error));
+            },
+        });
+	});
+	</script>
+<% include /common/footer %>
+	

@@ -1,0 +1,21 @@
+{
+  "name": "node-authentication",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^0.7.12",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^0.8.8",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "method-override": "^1.0.2",
+    "mongoose": "^4.5.7",
+    "morgan": "^1.7.0",
+    "passport": "^0.1.18",
+    "passport-facebook": "^1.0.3",
+    "passport-google-oauth": "^0.1.5",
+    "passport-local": "^0.1.6",
+    "passport-twitter": "^1.0.4"
+  }
+}

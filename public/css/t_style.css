@@ -1,0 +1,1952 @@
+.navbar-fixed-top, .navbar-fixed-bottom {
+	z-index: 900 !important;
+}
+
+
+#betaImg{
+z-index: 999; 
+}
+
+.red-flag, .tab-content{
+	  z-index: 800;
+}
+
+
+.registered-teams-box {
+	  padding-top: 140px;
+}
+
+.lower-padding {
+  padding-bottom: 140px;
+}
+
+.profile-settings {
+	padding: 260px 0 120px 0;
+}
+
+.edit-page-container {
+ float: left;
+ width: 100%;
+ height: 30px;
+ position: absolute;
+ top:120px;
+ left: 0;
+ text-align: right;
+}
+
+#waiverImgId{
+	width: 100%;
+}
+
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td {
+	   border-bottom-width: 1px; 
+}
+
+ul.tabs li {
+	margin: 0px 4px 10px 4px;
+  height: 160px;
+ /* float: left;*/
+}
+
+
+
+.register-for-goshou-text .btn-brown {
+	white-space: normal;
+}
+
+.red-text {
+	color: #bc2026; 
+}
+
+.green-bg {
+	background: #2a7560;
+}
+
+.white-text * {
+	color: #fff;
+}
+
+.img-container {
+	margin-top: 30px;
+    margin: 30px auto 0;
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+    
+}
+
+.img-container img {
+	margin: 0 auto;
+}
+
+
+/*================================
+		Landing Page
+==================================*/
+
+.white-section {
+	background: #ffffff;
+}
+
+.gray-section {
+	background: #f4f6f5;
+}
+
+.testimonials-section {
+	background: url('../images/testimonials-bg.png') no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.community-section {
+	background: #2a7560 url('../images/community-bg.png') no-repeat top center;
+	background-size: cover;
+	position: relative;
+}
+
+.gushou-section {
+	background: #fff url('../images/dragon-bottom.png') no-repeat center center;
+	background-position: top center;
+}
+
+.coming-soon-section {
+	background: url('../images/coming-soon-bg.png') no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.dragon-boating {
+	background: #fff url('../images/dragon-top.png') no-repeat center center;
+	background-position: bottom center;
+}
+
+.spacing-top {
+	padding-top: 100px;
+	float: left;
+	width: 100%;
+}
+
+.spacing-top-sm {
+	padding-top: 30px;
+}
+
+.spacing-bottom {
+	padding-bottom: 100px;
+	border-bottom:1px solid #ced1d0;
+}
+
+
+.spacing-lg {
+	padding: 100px 0;
+	float: left;
+    width: 100%;
+}
+
+.spacing-sm {
+	padding: 40px 0;
+	float: left;
+}
+
+.fullheight {
+	height: 100vh;
+}
+
+
+.jumbotron {
+	margin: 0;
+	width: 100%;
+	float: left;
+	height: 100vh;
+	background: url('../images/hero.png') no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.jumbotron h1, .jumbotron p {
+	margin-bottom: 50px
+}
+
+.jumbotron h1 {
+	line-height: 75px;
+}
+
+.jumbotron p {
+	color: rgba(255,255,255,0.7);
+	line-height: 1.6;
+}
+
+.home-icons {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.home .btn-primary {
+	margin: 50px 0;
+}
+
+.features-header {
+	width: 100%;
+	float: left;
+	background: url('../images/hero.png') no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+}
+
+.lp-features .tab-content-inner {
+	padding-bottom: 85px;
+	border-bottom: 2px solid #deeae6;
+}
+
+.lp-features .tab-content-inner.no-border-feature {
+	border-bottom: 0;
+}
+
+.lp-features .tab-content-inner i {
+	margin-right: 3px;
+}
+
+.lp-features .tab-content-inner p {
+	margin-top: 15px;
+}
+
+.lp-features .tab-content {
+	display: block;
+	background: #fff;
+	padding: 0;
+	border: 0;
+	position: static;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.team-img-container {
+	width: 100%;
+	height: 478px;
+	float: left;
+}
+
+.quotes {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+.testimonial-text p {
+	color: rgba(255,255,255,0.7); ;
+	letter-spacing: 0.96px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.testimonial-text small {
+	color: rgba(255,255,255,0.7);  ;
+	letter-spacing: 0.96px;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+.col-divider {
+	border-right: 1px dotted #deeae6;
+}
+
+
+/*==Features==*/
+.gray-section .nav-tabs {
+	padding: 0 !important;
+}
+
+.gray-section .nav-tabs>li.active, .gray-section .nav-tabs>li.active:focus, .gray-section .nav-tabs>li.active:hover, .gray-section .nav-tabs>li:hover {
+	background: #94bab0 !important;
+	border: 0;
+	border-bottom: 2px solid #236352;
+}
+.gray-section .nav-tabs>li.active>a, .gray-section .nav-tabs>li.active>a:hover, .gray-section .nav-tabs>li>a:hover, .gray-section .nav-tabs>li>a:focus {
+	background: #94bab0 !important;
+	border: 0 !important;
+	border-radius: 0;
+}
+
+.gray-section .nav-tabs>li {
+	border-right: 1px solid #deeae6;
+	border-left: 1px solid #deeae6;
+	text-align: center;
+}
+
+.gray-section .nav-tabs>li:hover, .gray-section .nav-tabs>li:focus {
+	border-bottom: 2px solid #236352;
+}
+
+.gray-section .nav-tabs>li>a {
+	color: #3a4642;
+	border: 0;
+	padding: 18px 15px;
+	display: flex;
+    align-items: center;
+}
+
+.gray-section .nav-tabs>li>a:hover {
+	color: #3a4642;
+	border: 0;
+}
+
+.gray-section .nav-tabs>li>a>i {
+	margin-right: 5px;
+}
+.gray-section .tab-content-inner {
+	padding-bottom: 75px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #dadada;
+	height: 230px;
+}
+
+.i-everyone {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	background: url('../images/icons.png') no-repeat;
+	background-position: -35px 0;
+}
+
+.i-event {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	background: url('../images/icons.png') no-repeat;
+	background-position: 0 0;
+}
+
+.i-paddler {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	background: url('../images/icons.png') no-repeat;
+	background-position: -70px 0;
+}
+
+.i-team {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	background: url('../images/icons.png') no-repeat;
+	background-position: -105px 0;
+}
+
+
+/*==End Features==*/
+
+/*== Pricing ==*/
+.panel {
+	
+}
+.panel.gushou-core {
+	border: 1px solid rgba(41, 117, 96, 0.35);
+	border-radius:10px ;
+	background: #eaf1ef;
+	margin-top: -60px;
+	z-index: 1000;
+}
+.panel.gushou-core>.panel-heading{
+	background: #94bab0;
+	border-radius:10px 10px 0 0;
+	padding: 30px 0;
+}
+
+.panel.gushou-core>.panel-heading h3, .panel.gushou-core>.panel-heading p {
+	color: #297560;
+	margin: 0;
+	line-height: 28px;
+}
+
+.panel.gushou-core>.panel-body h4 {
+	color: #297560;
+	margin-top: 56px;
+	margin-bottom: 24px;
+}
+
+.panel.gushou-core>.panel-body p {
+	margin: 0;
+}
+
+.panel.gushou-core>.panel-footer {
+	background: #eaf1ef;
+	border: 0;
+	border-radius: 0 0 10px 10px;
+}
+	
+.panel.gushou-core>.panel-footer .btn-pricing {
+	width: 250px;
+	height: 50px;
+	line-height: 39px;
+	margin-top: 56px;
+	margin-bottom: 56px;
+	background: transparent;
+	color: #297560;
+	border: 1px solid #297560;
+	border-radius: 8px;
+}
+
+.panel.gushou-core>.panel-footer .btn-pricing:hover {
+	background: #297560;
+	color: #fff;
+}
+
+.panel.gushou-core>.panel-footer p {
+	font-size: 12px;
+	color: #6b7472;
+}
+
+
+
+
+.panel.gushou-power {
+	border: 0;
+	border-radius:10px;
+	background: #f9eee9;
+	margin-top: -60px;
+	z-index: 1000;
+}
+.panel.gushou-power>.panel-heading{
+	background: #dfaa91;
+	border: 1px solid #dfaa91;
+	border-bottom: 0;
+	border-radius:10px 10px 0 0;
+	padding: 30px 0;
+}
+
+.panel.gushou-power>.panel-heading h3, .panel.gushou-power>.panel-heading p {
+	color: #a2481e;
+	margin: 0;
+	line-height: 28px;
+}
+
+.panel.gushou-power>.panel-body {
+	border: 1px solid #dfaa91;
+	border-bottom: 0;
+}
+
+.panel.gushou-power>.panel-body h4 {
+	color: #bf5523;
+	margin-top: 56px;
+}
+
+.panel.gushou-power>.panel-body h5 {
+	color: #bf5523;
+	margin-bottom: 24px;
+}
+	
+.panel.gushou-power .btn-pricing {
+	width: 250px;
+	height: 50px;
+	line-height: 39px;
+	margin: 18px 0;
+	background: #bf5523;
+	color: #fff;
+	border: 1px solid #b65020;
+	border-radius: 8px;
+}
+
+
+.panel.gushou-power .btn-pricing:hover {
+	background:#dfaa91;
+	border: 1px solid #dfaa91;
+	color: #bf5523;
+}
+
+.panel.gushou-power>.panel-body small {
+	font-size: 12px;
+	color: #6b7472;
+}
+
+.panel.gushou-power>.panel-body p {
+	margin: 0;
+}
+
+
+
+.panel.gushou-power>.panel-body.supreme {
+	border: 1px solid #97a6b7;
+	background: #eaedf1 url('../images/most-popular.png');
+	background-repeat: no-repeat;
+	background-position: right 10px top 10px;
+	border-radius: 0 0 10px 10px;
+}
+
+.panel.gushou-power>.panel-body.supreme h4 {
+	color: #27415e;
+	margin-top: 56px;
+}
+
+.panel.gushou-power>.panel-body.supreme h5 {
+	color: #27415e;
+	margin-bottom: 24px;
+}
+
+.panel.gushou-power>.panel-body.supreme h3 {
+	color: #27415e;
+	margin-bottom: 24px;
+	margin-top: 24px;
+	font-size: 35px;
+}
+
+.panel.gushou-power>.panel-body.supreme p {
+	margin: 0;
+}
+
+.panel.gushou-power>.panel-body.supreme .highlight {
+	color: #27415e;
+	text-decoration: underline;
+}
+	
+.panel.gushou-power .btn-supreme {
+	width: 250px;
+	height: 50px;
+	line-height: 39px;
+	margin: 18px 0;
+	background: #2e4d6f;
+	color: #fff;
+	border: 1px solid #27415e;
+	border-radius: 8px;
+	text-decoration: none ;
+}
+
+
+.panel.gushou-power .btn-supreme:hover {
+	background:#97a6b7;
+	border: 1px solid #97a6b7;
+	color: #2e4d6f;
+}
+
+
+.panel.gushou-power>.panel-footer {
+	background: #f9eee9;
+	border: 0;
+}
+	
+.panel.gushou-power .btn-pricing {
+	width: 250px;
+	height: 50px;
+	line-height: 39px;
+	margin: 18px 0;
+	background: #bf5523;
+	color: #fff;
+	border: 1px solid #b65020;
+	border-radius: 8px;
+}
+
+
+.panel.gushou-power>.panel-footer p {
+	font-size: 12px;
+	color: #6b7472;
+}
+
+.bottom-spacing {
+	margin-bottom: 56px !important;
+}
+
+.faq-item {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+}		
+/*== End Pricing ==*/
+
+/*== Sign Up ==*/
+
+
+/*.input-group input, .input-group input:hover {
+	border-right: 0 
+}*/
+
+/*== End Sign Up ==*/
+footer {
+	background: #2a7560;
+	float: left;
+    width: 100%;
+}
+
+footer .gray-section {
+	border-top: 1px solid #dadada;
+	background: url('../images/footer-gray.png') no-repeat;
+	background-size: cover;
+}
+
+footer .gray-section .col-md-6:first-child {
+	border-right: 1px solid #dadada;
+}
+
+footer .gray-section .col-md-6:nth-child(2) {
+
+	background: url('../images/flag-lp.png') no-repeat;
+	background-position: bottom right;
+} 
+
+footer .logo {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.social {
+	width: 100%;
+	float: left;
+}
+
+.social a {
+	margin-right: 10px;
+}
+
+.social a:hover {
+	text-decoration: none;
+}
+
+.social i {
+	color: #3e70a7;
+    width: 55px;
+    font-size: 30px;
+    padding: 7px 10px;
+    border: 2px solid #3e70a7;
+    border-radius: 4px;
+    text-align: center;
+}
+
+footer .footer-nav {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+footer .footer-nav li {
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.copyright p {
+	color: #D8D8D8 !important ;
+}
+
+footer .footer-nav li a, footer .footer-nav li a:hover, footer .footer-nav li a:focus {
+	color: rgba(255,255,255,0.7); 
+	text-decoration: none;
+}
+
+.main-footer p, .main-footer a {
+	color: #D8D8D8 !important; 
+}
+
+.main-footer a:hover {
+	color: #fff !important; 
+}
+/*================================
+		Landing Page End
+==================================*/
+
+
+/*=====New Manage Team=====*/
+
+.paddler-bg {
+	background: url('../images/paddler-bg.png') no-repeat;
+	background-size: cover;
+}
+
+.gray-bg {
+	width: 100%;
+	float: left;
+	background: #eaf1ef;
+}
+
+.side-padding {
+	padding: 0 30px;
+}
+
+.spacing-btm {
+	margin-bottom: 55px;
+	width: 100%;
+	float: left;
+}
+
+
+F
+
+.icheckbox_minimal.checked tr {
+	background: #eaf1ef;
+}
+
+.manage-team select {
+	background: url('../images/dd-arrow.png') no-repeat right transparent;
+	background-position: 95%;
+}
+
+
+.manage-team #members select {
+	border: 1px solid #297560;
+	border-radius: 8px;
+	height: 40px;
+	width: 230px;
+    padding: 0 40px 0 20px;
+    margin-right: 20px;
+	color: #3a4642;
+}
+
+.manage-team #members .input-group-addon select {
+	border: 0;
+	border-radius: 0;
+	height: auto;
+	/*width: 100%;*/
+    padding: 0;
+    margin-right: 0;
+	color: #3a4642;
+}
+
+
+.manage-team #members .input-group-addon, .manage-team #rosters .input-group-addon, .manage-team #lineups .input-group-addon , .manage-team #rosters .input-group .form-control,
+ .manage-team #lineups .input-group .form-control {
+	border-color: #297560;
+}
+
+.manage-team #members .input-group-addon:nth-child(1), .manage-team #rosters .input-group-addon:nth-child(1), .manage-team #lineups .input-group-addon:nth-child(1) {
+	border-radius: 8px 0 0 8px;
+}
+
+.manage-team #members .input-group-addon:nth-child(2), .manage-team #rosters .input-group-addon:nth-child(2), .manage-team #lineups .input-group-addon:nth-child(2) {
+	border-right: 0;
+}
+
+.manage-team #members .input-group .form-control, .manage-team #rosters .input-group .form-control, .manage-team #lineups .input-group .form-control {
+	height: 40px;
+	border-left: 0;
+	border-radius: 0 8px 8px 0;
+	border: 1px solid #297560;
+	border-left: 0;
+}
+
+.manage-team #members .input-group .form-control:focus, .manage-team #rosters .input-group .form-control:focus, .manage-team #lineups .input-group .form-control:focus {
+	outline: 0;
+	box-shadow: none;
+	border: 1px solid #297560;
+	border-left: 0;
+}
+
+.manage-team #members select, .manage-team #rosters select, .manage-team #lineups select {
+	color: #3a4642;
+	width: 230px;
+}
+
+.manage-team .tab-content {
+	min-height: 500px;
+}
+
+
+#members .input-group{
+	max-width: 500px;
+    float: left;
+    margin-right: 20px;
+}
+
+.roster-members-checkbox {
+	float: left;
+	width: 100%;
+	position: relative;
+	border-radius: 8px;
+	border: 1px solid #dadcdc;
+	margin-bottom: 30px;
+	height: 150px;
+}
+
+
+.roster-members-checkbox ul li {
+	list-style: none;
+}
+.roster-members-checkbox ul li label {
+	cursor: pointer;
+	display: block;
+	float: left;
+	width: 100%;
+	font-weight: normal;
+}
+.roster-members-checkbox ul li label .roster-checkbox {
+	visibility: hidden;
+}
+
+.roster-member-selected {
+	background: #dadcdc;
+	float: left;
+	width: 100%;
+}
+
+.roster-members-checkbox ul li .img-circle {
+	width: 50px
+}
+
+.mCSB_inside>.mCSB_container {
+	margin-right: 0;
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_draggerRail {
+	background-color: #fff;
+}
+.mCSB_scrollTools .mCSB_draggerContainer {
+	opacity: 0.5 !important
+}
+
+#messageRoster label {
+ font-weight: normal;
+}
+
+#messageRoster p {
+ font-weight: bold;
+}
+
+#messageRoster button.close {
+	opacity: 1;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #dadcdc;
+    right: -27px;
+    top: -11px;
+    background: #fff;
+}
+
+.manage-team .btn {
+	border-radius: 8px;
+}
+
+.manage-team .btn-transparent-orange {
+	height: 40px;
+	line-height: 40px;
+}
+
+.manage-team .btn-default {
+	height: 40px;
+	background-image:none;
+	border-color: #297560;
+	line-height: 29px;
+}
+
+.manage-team .input-group-addon {
+	border-radius: 8px;
+}
+
+.manage-team .btn-default i {
+	color: #297560;
+}
+
+.manage-team .btn-default:focus {
+	border: 1px solid #297560
+}
+
+.manage-team .tab-content {
+	display: block;
+	background: #fff;
+    padding: 30px;
+    margin: 0;
+    border: 0;
+    position: relative; 
+    float: left;
+	width: 100%;
+
+}
+
+.manage-team .nav-tabs {
+	padding-bottom: 0;
+	border-bottom: 1px solid #94bab0;
+	padding: 30px 30px 0 30px;
+}
+
+.manage-team .nav-tabs>li>a, .manage-team .nav-tabs>li>a.active {
+	color: #3a4642;
+}
+
+.manage-team .nav-tabs>li.active>a, .manage-team .nav-tabs>li>a:hover {
+	border: 1px solid #94bab0;
+	background: #fff;
+    border-bottom-color: transparent !important;
+}
+
+.manage-team .nav-tabs>li.active>a {
+	background-color:#fff;
+	border: 1px solid #94bab0;
+	color: #3a4642;
+}
+
+.manage-team .nav-tabs>li>a>span.badge {
+	background-color:#eaedf1;
+	border: 1px solid #ced1d0;
+	color: #3a4642;
+	font-size: 15px;
+}
+
+.manage-team td {
+    vertical-align: middle !important;
+}
+
+.manage-team thead {
+	border-radius: 8px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	border-top-left-radius:8px;
+	border-bottom-left-radius:8px;
+}
+
+.manage-team thead tr  {
+	background: #e6e8e7;
+	/*border: 1px solid #ced1d0;*/
+	border-radius: 8px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	border-top-left-radius:8px;
+	border-bottom-left-radius:8px;
+}
+
+.manage-team thead tr th:first-child {
+	border-radius: 8px 0 0 8px;
+	border-top-left-radius:8px;
+	border-bottom-left-radius:8px;
+}
+
+.manage-team thead tr th:last-child {
+	border-radius: 0 8px 8px 0;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	
+}
+
+.manage-team thead tr th {
+	border-bottom: 0 !important;
+	font-size: 13px;
+	font-weight: normal;
+	color: #236352;
+	text-transform: uppercase;
+}
+
+.manage-team tbody tr {
+	border-top: 0 !important;
+	border-bottom: 1px solid #dadcdc;
+}
+
+/*.table>tbody>tr>td, .table>thead>tr>th {
+	padding: 20px 8px;
+	border-top: 0;
+}*/
+
+.manage-team tbody tr td a:focus {
+	outline: 0
+}
+.manage-team tbody tr td strong {
+	color: #297560;
+}
+
+.manage-team tbody tr td a.member-options {
+	visibility: hidden;
+}
+
+.manage-team tbody tr td a.member-options:focus {
+	visibility: visible;
+}
+
+.manage-team tbody tr:hover .member-options {
+	visibility: visible;
+} 
+
+
+.popover.left>.arrow {
+    border-left-color: #999;
+}
+
+.popover-content ul li {
+	list-style: none;
+	padding: 5px 0;
+	border-bottom: 1px solid #dadcdc;
+}
+
+.popover-content ul li a {
+	color: #3a4642;
+}
+
+.popover-content ul li:last-child {
+ border-bottom: 0;
+ padding-bottom:0;
+}
+
+.popover-content ul li:last-child a {
+	color: #bf5523;
+}
+
+.member-options i {
+	color: #297560;
+}
+
+.manage-img {
+	display: inline-block;
+	width: 100px;
+	float: left;
+}
+
+.manage-img .img-circle {
+	width: 60px;
+}
+
+.manage-name {
+	display: inline-block;
+	float: left;
+}
+.manage-name strong {
+	color: #297560;
+}
+
+.manage-team tbody tr.invite-pending {
+	opacity: 0.5;
+	background: #ededed;
+}
+
+.manage-team tbody tr td.pending {
+	color: #bf5523;
+	text-transform: capitalize;
+}
+
+.manage-team tbody tr td.submitted {
+	color: #94bab0;
+	text-transform: capitalize;
+}
+
+#creatNewRoster button.close {
+	opacity: 1;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #dadcdc;
+    right: -27px;
+    top: -11px;
+    background: #fff;
+}
+
+#creatNewRoster button.close i {
+	color: #595959;
+}
+
+#creatNewRoster select {
+	width: 100%;
+}
+
+.captain-badge {
+	color: #fff;
+	background: #bf5523;
+	border: 1px solid #a2481e;
+	font-size: 9px;
+	font-weight: normal;
+}
+
+.co-captain-badge {
+	color: #fff;
+	background: #97a6b7;
+	border: 1px solid #7d91a8;
+	font-size: 9px;
+	font-weight: normal;
+}
+
+
+
+
+
+/*================================
+		Create Lineup
+==================================*/
+.create-lineup .breadcrumb, .manage-team .breadcrumb {
+	width: 100%;
+	float: left;
+	background: #eaf1ef;
+}
+
+.create-lineup .breadcrumb a, .create-lineup .breadcrumb i, .manage-team .breadcrumb a, .manage-team .breadcrumb i{
+	color: #97a6b7;
+	margin: 30px 0;
+}
+
+.lineup-content {
+	width: 100%;
+	float: left;
+	background: #fff;
+	border-top: 1px solid #94bab0;
+	padding: 75px 30px
+}
+
+.lineup-content select {
+	background: url('../images/dd-arrow.png') no-repeat right transparent;
+	background-position: 95%;
+}
+
+.lineup-content .members-container {
+	border: 1px solid #dadcdc;
+	width: 100%;
+	float: left;
+	padding: 30px 10px;
+	margin-bottom: 30px;
+	min-height: 50px;
+}
+
+.lineup-content .members-container h4 {
+	color: #2e4d6f;
+	font-size: 14px;
+	line-height: 28px;
+	text-transform: uppercase;
+}
+
+.lineup-content .img-circle {
+	width: 50px;
+	border: 1px solid #94bab0;
+	position: relative;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.lineup-content .boat-placement {
+	width: 100%;
+	float: left;
+	padding: 10px;
+	text-align: center;
+}
+
+.lineup-content .boat-placement .placement-container {
+	width: 100%;
+	float: left;
+	margin-top: 45px;
+	position: relative;
+}
+
+.lineup-content .boat-placement .placement-container:before {
+	content: "";
+	width: 100%;
+	height: 138px;
+	background: url('../images/boat-top.png') no-repeat;
+	background-size: 100%;
+	display: block;
+	margin-top: -45px;
+    position: absolute;
+    z-index: 0;
+}
+
+.lineup-content .boat-placement .placement-container:after {
+	content: "";
+	width: 100%;
+	height: 138px;
+	background: url('../images/boat-bottom.png') no-repeat;
+	background-size: 100%;
+	display: block;
+	bottom: -52px;
+    position: absolute;
+    z-index: 0;
+}
+
+.lineup-content .boat-placement .boat-row {
+	display: block;
+	width: 100%;
+	padding: 15px 44px;
+	background: #eaf1ef;
+	border-left: 4px solid #C9E3DC;
+	border-right: 4px solid #C9E3DC;
+	float: left;
+}
+
+.lineup-content .boat-placement .boat-row img {
+	z-index: 1000;
+	position: relative;
+}
+
+.lineup-content .boat-placement .boat-row:first-child, .lineup-content .boat-placement .boat-row:last-child {
+	background: none;
+	border: 0;
+}
+
+.lineup-content .boat-placement .boat-row .boat-member.droppable.ui-droppable {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #fff;
+	border: 1px dotted #297560;
+	border-spacing: 2px;
+	margin-right:  30px;
+	text-align: center;
+	display: block;
+	float: left;
+	position: relative;
+}
+.lineup-content .boat-placement .boat-row .boat-member.droppable.ui-droppable:last-child {
+	margin-right: 0;
+}
+
+.lineup-content .boat-placement .boat-row:first-child .droppable.ui-droppable, .lineup-content .boat-placement .boat-row:last-child .droppable.ui-droppable {
+	margin: 0 auto !important;
+	float: none;
+}
+
+.lineup-content .boat-placement .boat-row:last-child .droppable.ui-droppable {
+	margin: 0 auto !important;
+	float: none;
+	z-index: 1;
+}
+
+.lineup-content .boat-placement .boat-row .boat-member h4 {
+	color: #94bab0;
+	margin: 0;
+	padding: 0;
+	line-height: 50px;
+}
+
+.lineup-content .boat-stats {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px 0;
+}
+
+.lineup-content .boat-stats p {
+	font-size: 14px; 
+	color: #9CA2A1;
+	margin-bottom:0;
+}
+
+.lineup-content .boat-stats h4 {
+	font-size: 20px; 
+	color: #2E4D6F
+}
+
+/*================================
+		Dashboard List/Grid
+==================================*/
+button.team-schedule-list-button, button.team-schedule-grid-button {
+	background: none;
+	margin: 0 5px;
+}
+
+button.team-schedule-grid-button {
+	margin-right: 0;
+}
+
+#calendar {
+		
+		margin: 0 auto;
+	}
+.members-container .member-container {
+	margin: 0 5px;
+}
+
+.member-container {
+    float: left;
+    position: relative;  
+}
+
+.member-container .tip {
+  background: rgba(46,77,111,0.9);
+  border-radius: 8px;
+  color: #fff;
+  z-index: 1000;
+  display: block;
+  top: -120px;
+  left:-65px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  width: 200px;
+  text-align: center;
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+/*================================
+		Bug Fixes
+==================================*/
+h4 {
+	text-transform: uppercase;
+}
+
+
+
+.navbar-brand>img {
+	max-width: 120px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.cursorPointer {
+   cursor: pointer;
+}
+
+.round-checkbox input[type="checkbox"] + label span {
+	line-height: 35px;
+}
+
+.dashboard-heading h1 {
+	padding-bottom: 0;
+	line-height: 79px;
+}
+
+.tabs .send-invite {
+	padding: 45px 20px 0 20px !important;
+	min-height: 160px !important;
+	width: 160px;
+	float: left;
+    margin: 0px 10px 10px 4px;
+}
+
+ul.tabs li .members {
+	width: 159px;
+	word-wrap: break-word;
+}
+
+.schedule-filter-by-date li#month_cal {
+	min-width: 130px;
+}
+
+/*create-event*/
+/*select#currency {
+    width: 130px;
+    line-height: 45px;
+}*/
+
+.create-event-division-rows li {
+	list-style: none;
+	text-align: left;
+    width: 100%;
+    display: inline-block;
+    min-width: 135px;
+}
+
+/* #create_event_form h2 {
+	font-size: 36px;
+    text-transform: none;
+}
+ */
+.create-team-contact .input-group input[type="text"] {
+	max-width: 605px;
+}
+
+#create_event_form .input-group label, .register-team-form-text {
+	margin-bottom: 20px;
+}
+
+.create-team-content .input-group input {
+	line-height: 32px;
+}
+
+#updateEventClsDivs #canClsDiv {
+	height: 26px;
+}
+
+#registerMsgModal {
+	top: 30%;
+}
+#registerMsgModal .modal-content {
+	max-width: 470px;
+	margin: 0 auto;
+}
+
+#registerMsgModal .btn-transparent-orange {
+	height: auto;
+	line-height: 30px;
+	margin-bottom: 10px;
+	float: right;
+}
+
+#registerMsgModal button.close {
+	margin: 0;
+	position: absolute;
+    top: 2px;
+    right: 5px;
+}
+
+
+.create-team-content h1 {
+	font-size: 38px;
+}
+
+.create-team-heading h1.title {
+	    margin: 0;
+    padding: 54px 0;
+}
+
+
+.profile-settings .dashboard-profile {
+	min-height: 166px;
+}
+.profile-settings-head h1.title {
+	border: 0;
+	
+}
+.profile-settings-body h2 {
+	    text-transform: none;
+}
+
+.profile-settings-body p {
+	margin-bottom: 25px;
+}
+
+.profile-settings-body label, .profile-settings-body input, .profile-settings-body .profile-settings-activities {
+	font-size: 22px;
+	font-weight: normal;
+}
+
+.profile-settings-body p.light-grey {
+	font-size: 18px;
+}
+
+.profile-settings-body h2 {
+	border:0;
+}
+
+
+.register-team-box .register-for-gustou-select {
+	height: 50px;
+}
+
+.create-team-contact h2 {	
+    text-transform: inherit;
+}
+
+
+#showLessResults {
+	float: left;
+}
+
+#showLessResults span {
+	margin-left: 25px;
+}
+
+/*Pricing*/
+.pricing-banner {
+	width: 100%;
+	background: #dfaa91;
+	padding: 10px 0;
+	margin-bottom: 30px;
+	color: #a2481e;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.pricing-overlay-container {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.pricing-overlay {
+	width: 100%;
+	height: 100%;
+	top: -70px;
+	left: 0;
+	z-index: 10;
+	position: absolute;
+	background: rgba(93,118,146,0.5);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	display: flex;
+	/*align-items:center;*/
+	justify-content: center;
+}
+.pricing-overlay img {
+	display: block;
+	width: 200px;
+	height: 200px;
+	position: relative;
+	top: 15%;
+}
+.pricing-overlay h3 {
+	color: #297560;
+}
+
+#pricingSId.table-bordered {
+	border-bottom: 0;
+}
+
+#bird_date_form .btn-brown, #bird_date_form .btn-brown:hover, #bird_date_form .btn-brown:focus {
+	padding: 1px 5px;
+}
+
+#bird_date_form tr {
+	background: transparent;
+}
+
+#bird_date_form tr td {
+	background-color: #FDFCF8;
+}
+
+#bird_date_form tr td:first-child {
+	background-color: transparent;
+}   
+
+.team-captain-members .input-group {
+	width: 75%;
+}
+
+.team-captain-input:focus, .team-captain-select:focus {
+	border: solid 1px #b2b2b2;
+}
+
+.schedule-filter-by-view {
+	float: left;
+	width: 100%;
+}
+
+#insertAnnouncement .select {
+	width: auto;
+}
+
+#display_date select {
+	width: auto;
+	padding-right: 15px;
+}
+
+#clubs-listing .race-date-container .race-list-date {
+	margin-bottom: 22px !important;
+}
+
+#clubs-listing .delete {
+	float: right;
+}
+
+
+
+#creatNewRosterModal .modal-body select, #editRosterModal .modal-body select{
+	width: 100%;
+}
+
+#saveLineup {
+	width: auto;
+}
+
+.create-team-content label {
+	margin-bottom: 20px;
+}
+
+.create-permissions {
+	margin-bottom: 30px;
+}
+
+.register-team-form-text, .register-team-box label, .register-team-box div, .register-for-gustou-select  {
+	font-family: 'Merriweather Sans', sans-serif !important;
+    color: #3a4642;
+    line-height: 45px;
+    font-weight: normal;
+}
+
+.create-team-content * {
+	font-family: 'Merriweather Sans', sans-serif !important;
+}
+
+.create-team-contact h1.register-team-section-headers {
+	margin-top: 0;
+}
+
+.create-event-content .event-input-style-regular {
+	width: 234px;
+}
+
+.register-team-section-headers {
+	font-size: 48px  !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.schedule-content p {
+	margin: 0;
+}
+
+.classes-box-list .round-checkbox input[type="checkbox"] + label span {
+	padding: 0;
+	line-height: 30px;
+}
+
+.division-rows li {
+	list-style: none;
+}
+
+
+.footer p {
+	line-height: 60px;
+}
+
+footer span {
+    color: #D8D8D8 !important;
+}
+
+
+
+@media (max-width: 1200px) {
+	.nav-tabs>li {
+		width: 100%;
+	}
+}
+
+
+@media screen and (min-width: 1024px) {
+	.race-list-date h3 {
+		font-size: 35px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.delete-button-container {
+		width: 100%;
+		float: left;
+		text-align: center;
+	}
+
+	.jumbotron {
+		height: auto;
+	}
+
+	.navbar-default .navbar-collapse {
+		height: auto !important;
+	}
+
+	.team-name {
+		text-align: center;
+	}
+
+	.team-captain-members .input-group {
+		float: left;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.tabs .send-invite {
+		padding: 11px 0 0 0 !important;
+		float: none;
+		position: relative;
+		display: inline-table;
+		vertical-align: center;
+		margin-right: 4px !important;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+   .navbar-collapse.collapse {
+       display: none !important;
+   }
+   .navbar-collapse.collapse.in {
+       display: block !important;
+   }
+   .navbar-header .collapse, .navbar-toggle {
+       display:block !important;
+   }
+   .navbar-header {
+       float:none;
+   }
+}
+
+
+@media screen and (max-width: 768px) {
+	.dropdown-menu {
+		position: relative;
+		width: 100%;
+	}
+
+	.navbar-default .navbar-nav > li {
+		display: block;
+		border: 0 !important;
+	}
+
+	.profile-details {
+		padding: 0 0 30px 0;
+	}
+
+	.home-logo {
+	    margin-top: 160px;
+	}
+
+
+
+	.event-team-name {
+		text-align: left;
+	}
+
+	.team-captain-row {
+		width: 100%;
+	}
+
+	#bsignin {
+		margin: 0;
+	}
+
+/*	#delete_team, #delete_event {
+	    position: relative;
+	    right: 0px;
+	    bottom: 0;
+	}*/
+
+	.members-list {
+		text-align: center;
+	}
+	
+	.navbar-default .navbar-collapse{
+		z-index: 1000;
+		position: relative;
+	}
+
+	.navbar-nav > li > a.btn-brown, .navbar-nav > li > a.btn-brown:hover {
+		float: none;
+	}
+
+	.team-heading {
+		margin-top: 50px;
+	}
+
+
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a  {
+		color: rgba(255,255,255,0.7) !important;
+		box-shadow: none;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+		color: rgba(255,255,255,1) !important;
+	}
+
+	.manage-team .nav-tabs > li > a {
+		border: 1px solid #94BAB0;
+	}
+
+	.manage-team #members button {
+		width: 100%;
+		border-bottom-right-radius: 8px;
+		border-top-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		border-top-left-radius: 8px;
+		border-radius: 8px;
+		margin-top: 10px;
+	}
+
+	
+	#lineups .input-group .input-group-addon:nth-child(2) {
+		width: 10%;
+		float: left;
+		border-bottom-left-radius: 8px;
+		border-top-left-radius: 8px;
+	}
+
+	#lineups .input-group input {
+		width: 90%;
+		float: left;
+	}
+	.boat-stats:first-child {
+		margin-top: 150px;
+	}
+
+	.manage-team #members .input-group-addon:nth-child(1) {
+		display: block;
+		float: left;
+		width: 100%;
+		border-right: 1px solid;
+		border-radius: 8px;
+		margin-bottom: 20px;
+		height: 40px;
+		line-height: 30px;
+	}
+
+	.manage-team #members .input-group-addon:nth-child(2) {
+		float: left;
+		height: 40px;
+		border-radius: 8px 0px 0px 8px;
+		width: 40px;
+		line-height: 25px;
+	}
+
+	.manage-team #members #search_filter input#searchByName {
+		float: left;
+		width: 170px;
+	}
+
+}
+
+
+@media screen and (max-width: 480px) {
+	.team-list-box input {
+	    font-size: 20px;
+	}
+
+	.team-location ul li {
+		float: left;
+	}
+
+	
+	.create-team-content .input-group input {
+		min-width: 100%;
+	}
+
+	.event-background img {
+		top: 90px;
+	}
+
+	.team-background {
+		margin-top: 90px;
+	}
+
+	#other_pract_pricing td {
+		display: block !important;
+	}
+
+	.event-list {
+		text-align: center;
+	}
+
+	.event-list .col-md-10 {
+		min-height: 200px;
+	}
+
+
+	
+
+/*	#main-content {
+	    padding: 140px 0px 190px;
+	}
+*/
+	.home-logo {
+	    margin-top: 220px;
+	}
+
+	#completeRegisterForm .input-group, #completeRegisterForm .form-group, #completeRegisterForm .btn-group, #completeRegisterForm	 .checkbox-new {
+		margin-bottom: 20px !important;
+	}
+
+	.icheckbox_minimal, .iradio_minimal {
+		-webkit-background-size: 95px 19px;
+    	background-size: 95px 19px;
+	}
+	.icheckbox_minimal.checked {
+	    background-position: -38px 0px;
+	}
+	
+	.manage-team #search_filter .btn, #rosters #creatNewRoster, #lineups .btn.btn-default{
+		margin-top: 20px;
+	}
+
+	.manage-team #search_filter .text-right {
+		text-align: left;
+	}
+
+	.ce_bg {
+		margin-top: -150px;
+	}
+
+	#saveCoachingFee {
+		margin: 10px 0 20px 0;
+	}	
+
+
+
+
+}
+
+/*===========================================
+		 	Responsive Tables
+============================================*/
+
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	.table > tbody > tr > td {
+		border-color: #ddd !important;
+	}
+
+	/* Force table to not be like tables anymore */
+	table.responsive-table, .responsive-table thead, .responsive-table tbody, .responsive-table th, .responsive-table td, .responsive-table tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.responsive-table thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.responsive-table tr { border: 1px solid #ccc; }
+	
+	.responsive-table td { 
+		/* Behave  like a "row" */
+		border: none;
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	.responsive-table tr {
+		float: left;
+		
+	}
+
+	.manage-team tbody tr:first-child {
+		border-top: 1px solid #DADCDC !important;
+	}
+
+	.manage-team #members select {
+		max-width: 344px;
+		width: 100%
+	}
+	
+	.responsive-table td:before { 
+		/* Now like a table header */
+		float: left;
+		padding-right: 20px; 
+		white-space: nowrap;
+		font-weight: bold;
+	}
+
+	.manage-team tbody tr td a.member-options {
+		visibility: visible;
+		float: right;
+	}
+	
+	/*
+	table-members-responsive
+	*/
+	.table-members-responsive td {float: left; }
+	.table-members-responsive td:nth-of-type(1):before { content: "Select"; }
+	.table-members-responsive td:nth-of-type(2):before { content: "Name"; }
+	.table-members-responsive td:nth-of-type(3):before { content: "Side"; }
+	.table-members-responsive td:nth-of-type(4):before { content: "Skill"; }
+	.table-members-responsive td:nth-of-type(5):before { content: "Weight"; }
+	.table-members-responsive td:nth-of-type(6):before { content: "Joined On"; }
+
+
+	/*
+	table-roster-responsive
+	*/
+	.table-roster-responsive td {float: left; }
+	.table-roster-responsive td:nth-of-type(1):before { content: "NAME"; }
+	.table-roster-responsive td:nth-of-type(2):before { content: "MEMBERS"; }
+	.table-roster-responsive td:nth-of-type(3):before { content: "CLASS"; }
+	.table-roster-responsive td:nth-of-type(4):before { content: "DIVISIONS"; }
+	.table-roster-responsive td:nth-of-type(5):before { content: "EVENT"; }
+	.table-roster-responsive td:nth-of-type(6):before { content: "REGISTRATION"; }
+
+	/*
+	table-roster-responsive
+	*/
+	.table-lineup-responsive td {float: left; }
+	.table-lineup-responsive td:nth-of-type(1):before { content: "NAME"; }
+	.table-lineup-responsive td:nth-of-type(2):before { content: "EVENT"; }
+	.table-lineup-responsive td:nth-of-type(3):before { content: "ROSTER"; }
+	.table-lineup-responsive td:nth-of-type(4):before { content: "MEMBERS"; }
+	
+}

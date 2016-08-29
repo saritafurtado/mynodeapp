@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+    <% include /common/head %>
+    <body>
+        <% include /common/loggedin_nav %>
+			<div id="main-content">	
+				<div id="wrapper">
+					<div class="page-header team-page-header">
+						<div class="container">
+							<section class="header-title">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<h1 class="inverted">Teams</h1>
+										<h5>Search for a team , or <a href="/create-team" class="btn btn-phantom-orange">create a new one</a> </h5>
+									</div>
+								</div>
+							</section><!--/header-title-->
+						</div>
+					</div>
+
+					<div class="container">
+						<section class="advanced-search">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="search-listing">
+										<div class="input-group">
+										  <span class="input-group-addon"><i class="ti-search"></i></span>
+										  <input type="text" class="form-control" id="search_team_name" placeholder="Search all teams">
+										</div>
+										<button type="button" id="find_teams" class="btn btn-primary">Search</button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<a class="advanced-search-toggle">Advanced Search <i class="ti-angle-down"></i></a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="advanced-search-options" style="display: none;">
+									<form id="team_adv_search" action="">
+										<div class="col-md-6">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+													    <label>Show me teams in</label>
+													    <input type="text" id="city" class="form-control input-xlarge" placeholder="City">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-group">
+													    <label>Show me teams for</label>
+													    <select id="classes" class="select-custom form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+					                                        <option value="">Any Class</option>
+					                                        <option value="all">All Classes</option>
+					                                        
+					                                            <option value="M">Men's</option>
+					                                        
+					                                            <option value="W">Women's</option>
+					                                        
+					                                            <option value="MX">Mixed</option>
+					                                        
+					                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-classes-container"><span class="select2-selection__rendered" id="select2-classes-container" title="Any Class">Any Class</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+													    <label>Show me teams by captain</label>
+													    <input type="text" class="form-control" id="captain" placeholder="Captain's name">
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="md-checkbox">
+							                           	<input value="None" id="recruit" name="check" class="md-check" type="checkbox">
+							                           	<label for="recruit" class="label-bold recruiting-team-checkbox">
+							                            	<span class="check"></span>
+							                            	<span class="box"></span>
+							                            	Show me only teams <br> currently recruiting paddlers
+							                            </label>
+							                        </div>
+												</div>
+											</div>
+										</div><!--/col-md-6-->
+										<div class="col-md-6">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="md-checkbox all-divisions">
+							                           	<input value="all" id="all_divisions" name="check" class="md-check" type="checkbox">
+							                           	<label for="all_divisions" class="label-bold">
+							                            	<span class="check"></span>
+							                            	<span class="box"></span>
+							                            	All divisions
+							                            </label>
+							                        </div>
+												</div>
+											</div>
+											<div class="row">
+												<ul class="advanced-search-division-rows">
+													<% divisions.forEach(function(doc){ %> 
+					                                   <li class="md-checkbox all-divisions">
+								                           	<input id="<%= doc.value %>" name="divisions[]" class="md-check" type="checkbox" value="<%= doc.value %>">
+								                           	<label for="<%= doc.value %>">
+								                            	<span class="check"></span>
+								                            	<span class="box"></span>
+								                            	<%= doc.div_name %>
+								                            </label>
+								                        </li>
+					                                <% }); %>
+												</ul>
+
+											</div>
+										</div><!--/col-md-6-->
+									</form>
+								</div><!--/advanced-search-options-->
+							</div>
+						</section><!--/advanced-search-->
+
+						<section class="listing-list">
+						    <div class="clearfix">
+						      <div class="reactive-table-options col-sm-8 pull-right">	 </div>
+						    </div>
+			    
+						    <table id="teamsSettingsId" class="table listing-list responsive-table team-listing-table listing-margin-border reactive-table">
+						        <thead>
+						          <tr>
+					                    <th class="" fieldid="0"></th>
+					                    <th class="col-md-1" fieldid="1"></th>
+					                    <th class="col-md-3" fieldid="2">Name</th>
+					                    <th class="col-md-3" fieldid="3">LOCATION</th>
+					                    <th class="col-md-5" fieldid="4">DIVISION</th>
+					                    <th class="" fieldid="5"></th>  
+						          </tr>
+						        </thead>
+						        <tbody>
+						        <% teams.forEach(function(doc){ %>
+						            <tr class="">
+						                  <td class=""></td>
+						                  <td class=""><img src="/images/Default-Team-Images.png" class="img-circle"></td>
+						                  <td class="_id"><a href="/team-view/team-transplant" class="listing-title"><%= doc.team_name %></a><button id="delete_team" type="button" class="listing-delete">Delete Team</button></td>
+						                  <td class="location"><%= doc.city %>, <%= doc.province %></td>
+						                  <td class="category"><ul class="list-classes"><li><span class="list-class" data-toggle="tooltip" title="">Com<div class="class-tooltip">Community</div></span></li><li><span class="list-class" data-toggle="tooltip" title="">OT<div class="class-tooltip">Out-of-town</div></span></li><li><span class="list-class" data-toggle="tooltip" title="">Or<div class="class-tooltip">Other</div></span></li></ul></td>
+						                  <td class=""></td>
+						            </tr>
+						            <% }); %>
+						        </tbody>
+						    </table>
+					    </section>
+					    <!-- <section class="listing-pagination">
+							<div class="row">
+							    <div class="col-md-6">
+							    	<select id="rows_per_page" name="" class="form-control">
+							    		<option value="10">10 rows per page</option>
+							    		<option value="20">20 rows per page</option>
+							    		<option value="30">30 rows per page</option>
+							    	</select>
+							    </div>
+							    <div class="col-md-6">
+							    	<nav>
+									  <ul class="pagination">
+									    <li><a aria-label="First"><span aria-hidden="true">«</span></a></li><li><a aria-label="Previous"><span aria-hidden="true">‹</span></a></li> <li class="active"><a id="0" class="page_num" href="#">1</a></li> <li class=""><a id="1" class="page_num" href="#">2</a></li> <li class=""><a id="2" class="page_num" href="#">3</a></li> <li class=""><a id="3" class="page_num" href="#">4</a></li> <li class=""><a id="4" class="page_num" href="#">5</a></li><li><a id="next" href="#" aria-label="Next"><span aria-hidden="true">›</span></a></li><li><a id="last" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+									  </ul>
+									</nav>
+							    </div>
+							</div>
+						</section> -->
+					    <div class="modal fade" id="deleteTeamModal">
+					        <div class="modal-dialog">
+					            <div class="modal-content">
+					                <div class="modal-body">
+					                	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+					                    <h3>Delete Team</h3>
+					                    Are you sure you want to delete this team?<br>
+					                    Once deleted, team will be removed from all events and rosters.
+
+					                </div>
+					                <div class="modal-footer">
+										<div class="row">
+					                		<div class="col-md-6">
+					                			<button id="deleteBtn" type="submit" class="btn btn-primary btn-fullwidth">Delete</button>
+					                		</div>
+					                		<div class="col-md-6">
+					                			 <button type="reset" class="btn btn-secondary btn-fullwidth" data-dismiss="modal" aria-label="Close">Cancel</button>
+					                		</div>
+					                	</div>		                    
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		<script>
+			$( ".advanced-search-toggle" ).click(function() {
+			  	$('.advanced-search-toggle').parents(".advanced-search").first().find(".advanced-search-options").first().slideToggle();
+				$('.advanced-search-toggle').find("i").toggleClass("ti-angle-down ti-angle-up");
+			});
+		</script>
+		<% include /common/footer %>
+		

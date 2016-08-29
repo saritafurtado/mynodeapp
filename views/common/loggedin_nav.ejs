@@ -1,0 +1,65 @@
+<p id="check_browser" style="display: none;">In order to get the best Gushou experience, we recommend you use a modern browser such as Chrome or Firefox.</p>
+        <nav class="navbar navbar-default" id="top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="nav-link navbar-brand" href="/">
+                        <img src="/images/gushou-logo.png" alt="Gushou">
+                        <div class="label label-orange">BETA</div>
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li data-toggle="collapse" data-target=".nav-collapse">
+							<a href="/dashboard" class="nav-link">Dashboard</a>
+						</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="ti-angle-down"></span></a>
+                            <ul class="dropdown-menu">
+                                <!-- <li><a href="{{pathFor 'paddlers'}}">Paddlers</a></li> -->
+                                <li data-toggle="collapse" data-target=".nav-collapse"><a href="/teams" class="nav-link-outside">Teams</a></li>
+                                <li data-toggle="collapse" data-target=".nav-collapse"><a href="/events" class="nav-link-outside">Events</a></li>
+                            </ul>
+                        </li>
+                        <li data-toggle="collapse" data-target=".nav-collapse"><a href="/events" class="nav-link">Events</a></li>
+                        <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="ti-angle-down"></span></a>
+						<ul class="dropdown-menu">
+							<li data-toggle="collapse" data-target=".nav-collapse"><a href="{{pathFor 'features'}}" class="nav-link">Features</a></li>
+							<li data-toggle="collapse" data-target=".nav-collapse"><a href="https://gogushou.wordpress.com/" target="_blank" class="nav-link">Blog</a></li>
+						</ul>
+					</li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+					<li data-toggle="collapse" data-target=".nav-collapse" class="nav-link">
+						<a href="/dashboard">
+						<img src="/images/paddler-default.png" class="img-circle">
+						</a>
+					</li>
+
+                    <!-- <% if(user != undefined){ %> -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><%= user.firstname %> <%= user.lastname %> <span class="ti-angle-down"></span></a>
+						<ul class="dropdown-menu profile-setting-dropdown">
+							<li data-toggle="collapse" data-target=".nav-collapse"><a href="#" class="nav-link">Profile settings</a></li>
+							<li data-toggle="collapse" data-target=".nav-collapse"><a href="#" class="nav-link">Change password</a></li>
+							<li data-toggle="collapse" data-target=".nav-collapse"><a href="/logout" id="signout">Sign out</a></li>
+						</ul>
+					</li>
+                    <!-- <% } %> -->
+				</ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-->
+        </nav>
+        <div class="fund-promo-message">
+            <p>Gushou is now on Indiegogo! <a href="https://www.indiegogo.com/projects/gushou-the-pulse-of-the-dragon-boat-community--2#/" target="_blank" class="btn btn-pink">Support Us</a></p>
+        </div>

@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+    <% include /common/head %>
+    <body>
+        <% include /common/nav %> 
+    <section class="features-header spacing-lg vertical-center">
+        <form action="/register" method="post">
+            <div id="step1" class="container ">
+                <div class="row">
+                    <div class="col-md-12 text-center sign-up-head ">
+                        <h1 class="inverted">Create your account</h1>
+                        <p>Already have an account? <a href="/login">Sign in now</a>.</p>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                        <div class="panel create-body-fullwidth panel-default sign-up">
+                            <div class="panel-head">
+                                <h2>Step 1 of 2</h2>
+                            </div>
+
+                            <div class="panel-body">
+                                    <% if (message.length > 0){
+                                    if (Array.isArray(message)){   %>
+                                        <div class="alert alert-danger">
+                                            <% message.forEach(function(doc){ %> 
+                                                <%= doc.msg %>
+                                            <% }); %>
+                                        </div>
+                                    <% } 
+                                    else { %>
+                                        <div class="alert alert-danger"><%= message %></div>
+                                    <% } } %>
+                                    <div id="reg_err_step1" class=""></div>
+                                    <span id="succ_msgs2" class=""></span>
+                                    <div class="register-item">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>Account information <span class="red-star">*</span></h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <span id="email_err" class="error-message hide"></span>
+                                                    <input type="email" name="email" autofocus id="email" class="form-control input-md required" placeholder="Email Address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group" id="pswd">
+                                                    <span id="password_err" class="error-message hide"></span>
+                                                    <input type="password" class="form-control required" id="password" name="password" placeholder="Password">
+                                                    <span class="input-group-addon" id="passwordRules">
+                                                        <a href="#" data-toggle="tooltip" class="register-for-gustou-tooltip" data-placement="top" title="Password must contain 8 characters or more. It is recommended to use lowercase letters, uppercase letters and numbers."><i class="ti-info-alt"></i></a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--/.register-item-->
+
+                                    <div class="register-item">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>What's your typical role? <span class="red-star">*</span></h3>
+                                                <span id="activity_err" class="error-message hide"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <% allactivity.forEach(function(act){ %>
+                                            <div class="col-md-6">
+                                                <div class="md-checkbox">
+                                                    <input value="<%= act.value %>" id="<%= act.value %>" name="activities[]" class="md-check" type="checkbox">
+                                                    <label for="<%= act.value %>">
+                                                        <span class="check"></span>
+                                                        <span class="box"></span>
+                                                        <%= act.name %>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                            <% }); %>
+                                        </div>
+                                    </div>
+
+                                    <div class="register-item">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="button" value="Continue" id="submit_step1" class="btn btn-phantom-green btn-fullwidth" />
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step2" class="container hide">
+                <div class="row">
+                    <div class="col-md-12 text-center sign-up-head ">
+                        <h1 class="inverted">Create your account</h1>
+                        <p>Already have an account? <a href="/login">Sign in now</a>.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                        <div class="panel create-body-fullwidth panel-default sign-up">
+                            <div class="panel-head">
+                                <h2>Step 2 of 2</h2>
+                            </div>
+
+                            <div class="panel-body">
+                                <form role="form" id="completeRegisterForm">
+                                    <div class="register-status">
+                                        <span id="err_msgs" class="error-message"></span>
+                                        <span id="succ_msgs" class="success-message"><!-- {{#if verificationEmail}} A confirmation email has been sent to your inbox. Please check your email and kindly click on the activation link now or after step 2 in order to confirm your account.{{/if}} --></span>
+                                        <!-- <span class="success-message"></span> -->
+                                    </div>
+                                
+
+                                    <div class="register-item">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>Tell us about yourself</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="firstname" autofocus id="firstname" class="form-control input-md" placeholder="First name" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="lastname" autofocus id="lastname" class="form-control input-md" placeholder="Last name" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <div class="md-checkbox">
+                                                        <input value="None" id="displayname" name="displayname" class="md-check" type="checkbox" >
+                                                        <label for="displayname">
+                                                            <span class="check"></span>
+                                                            <span class="box"></span>
+                                                            Show my full name to everyone
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <span id="dob_err" class="error-message hide"></span>
+                                            <div class="col-md-7">
+                                                <div id="datepickerContainer">
+                                                    <div class="note-tooltip-dob">
+                                                        <div class="input-group date">
+                                                            <input type="text" class="form-control complete-register-dob" placeholder="Date of birth" id="dob" name="dob" />
+                                                            <span class="input-group-addon gray-icons" id="datepicker-icon">
+                                                                <i class="ti-calendar"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-tooltip">
+                                                        <img src="/images/question.png" alt="">
+                                                        <div class="class-tooltip">
+                                                            <p>Please select your birth month and year before you select your day</p>
+                                                            <p>Used only for division validation and understanding dragon boat demographics as a whole</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="btn-group" role="group" aria-label="...">
+                                                    <button type="button" class="btn btn-default btn-height active " id="eligible_type_M" value="M">M</button>
+                                                    <button type="button" class="btn btn-default btn-height" id="eligible_type_W" value="F">F</button>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Weight" name="weight" id="weight" />
+                                                    <span class="input-group-addon gray-icons">
+                                                        lb
+                                                    </span>
+                                                </div>
+                                                <p class="text-center">(Optional)</p>
+                                            </div> -->
+                                        </div>
+                                    </div><!--/.register-item-->
+
+                                    <div class="register-item">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <span id="country_err" class="error-message hide"></span>
+                                                <select class="form-control" name="country" id="country" >
+                                                    <option value="">- Select country -</option>
+                                                    <option value="Canada">Canada</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="other_country" class="row hide">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <span id="other_country_err" class="error-message hide"></span>
+                                                    <input type="text" name="other_country" id="other_country" class="form-control input-md" placeholder="Country" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group" id="register-province">
+                                                    <input type="text" name="city" id="city" class="form-control input-md" placeholder="City" >   
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                        <input type="text" class="form-control input-md" placeholder="Province or state" disabled>
+                                                        <input type="text" name="province" id="province" class="form-control input-md" placeholder="Province or state" >                                           
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span id="postal_err" class="error-message hide"></span>
+                                                    <input type="text" name="postal_code" id="postal_code" class="form-control input-md" placeholder="Postal Code" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div><!--/.register-item-->
+
+                                    <div class="register-item">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <span id="terms_err" class="error-message hide"></span>
+                                                    <div class="md-checkbox">
+                                                        <input value="None" id="terms_policy" name="" class="md-check" type="checkbox" >
+                                                        <label for="terms_policy" class="terms_policy">
+                                                            <span class="check"></span>
+                                                            <span class="box"></span>
+                                                            I have read and agree to the Gushou <a id="termsConditionId">Terms of use</a> and the <br> <a id="pPolicy">Privacy policy</a>.
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="md-checkbox register-subscribe">
+                                                        <input value="None" id="newsletter" name="newsletter" class="md-check" type="checkbox">
+                                                        <label for="resgisterSubscribe">
+                                                            <span class="check"></span>
+                                                            <span class="box"></span>
+                                                            Gushou Newsletters.
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="submit" value="Create account" class="btn btn-primary btn-fullwidth" />
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="checkbox-new" style="text-align: center">
+                                                    <label class="cursorPointer" id="logoutbeforaccCreate" > Cancel account</label>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div><!--/.register-item-->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+</section>
+<% include /common/footer %> 
+    <script>
+        $('#submit_step1').click(function(){
+            var email = jQuery.trim($('#email').val());
+            email = email.toLowerCase();
+            var password = $('#password').val();
+
+            var activityVals = [];
+            $('input:checkbox[name="activities[]"]').each(function() {
+                if (this.checked) {
+                    activityVals.push(this.value);
+                }
+            });
+             //if(email && password && activityVals.length > 0){
+                 var data = {};
+                data.email = email;
+                data.password = password;
+                /*$.post('/register', {email:email, password:password}, function (resp) {
+                var ret = JSON.stringify(resp);
+                        console.log('Success: '+JSON.stringify(resp))
+                    if(resp){
+                    console.log(resp)
+                       /* $('#step1').addClass('hide');
+                        $('#step2').removeClass('hide'); 
+                    }
+                }); */
+
+                $.ajax({
+                    url: '/register-step1',
+                    data: data,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        var response = data.message;
+                        var error_message = "";
+                        console.log(response)
+                        if($.isArray(response)){
+                            response.forEach(function(doc){
+                                error_message = error_message + doc.msg + "<br>";
+                            });
+                            $('#reg_err_step1').html(error_message);
+                            $('#reg_err_step1').addClass('alert alert-danger');
+                        }
+                        else if(response != "success"){
+                            error_message = response;
+                            $('#reg_err_step1').html(error_message);
+                            $('#reg_err_step1').addClass('alert alert-danger');
+                        }
+                        else{
+                            $('#step1').addClass('hide');
+                            $('#step2').removeClass('hide'); 
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Error: ' + JSON.stringify(error));
+                    },
+                });
+                
+            /* }
+            else{
+
+            } */
+        });
+    </script>
+</body>
+</html>

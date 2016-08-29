@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <% include /common/head %>
+    <body>
+        <% include /common/nav %> 
+    <div id="main-content">
+    <section class="features-header spacing-lg vertical-center text-center">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="inverted">Sign In</h1>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                    <div class="panel panel-default sign-up">
+                        <div class="panel-body">
+                            <span id="err_msgs" class=""></span>
+                            <% if (message.length > 0) { %>
+                                <div class="alert alert-danger"><%= message %></div>
+                            <% } %>
+                            <span id="succ_msgs" class=""></span>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form action="/login" method="post" id="login-form">
+                                        <div class="row">
+                                          <div class="col-xs-12">
+                                            <div class="form-group">
+                                              <input type="email" name="email" id="login-username" class="form-control input-md" placeholder="Email address" >
+                                            </div>
+
+                                             <div class="form-group">
+                                              <input type="password" name="password" id="login-password" class="form-control input-md" placeholder="Password" >
+                                            </div>
+
+                                            <input type="submit" value="Sign In" class="btn btn-primary btn-fullwidth">
+                                          </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                          <div class="row">
+                            <div class="col-md-12 text-center">
+                              <p class="green-text small" style="margin-top: 10px;">Forgot your password? <a href="/forgot-password">Recover it</a>.</p>
+                              <p class="green-text small">Not a member? <a href="/register">Create your account</a>.</p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+<!-- <div class="container">
+
+    <div class="col-sm-6 col-sm-offset-3">
+
+        <h1><span class="fa fa-sign-in"></span> Login</h1>-->
+
+        <!-- show any messages that come back with authentication -->
+        <!-- <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %> -->
+
+        <!-- LOGIN FORM -->
+       <!-- <form action="/login" method="post">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        </form>
+
+        <hr>
+
+        <p>Need an account? <a href="/signup">Signup</a></p>
+        <p>Or go <a href="/">home</a>.</p>
+
+    </div>
+</div> -->
+<% include /common/footer %>  
+</body>
+</html>
