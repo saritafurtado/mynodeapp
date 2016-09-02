@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var divisionSchema = mongoose.Schema({
 	div_name: {
 		type: String,
+		label: " Division full name"
 	}, 
 	value: {
 		type: String,

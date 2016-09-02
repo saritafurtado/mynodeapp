@@ -12,8 +12,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var expressValidator = require('express-validator');
 var session      = require('express-session');
-var $ = require('jQuery')
+
 var configDB = require('./config/database.js');
+var _ = require('underscore');
+var Division = require('./app/models/division');
 
 // configuration ===============================================================
 mongoose.connect('mongodb://localhost/nodedb'); // connect to our database
@@ -29,7 +31,7 @@ app.use(bodyParser.urlencoded({
 app.use(expressValidator());
 
 app.set('view engine', 'ejs'); // set up ejs for templating
-
+//app.set('views'. path.join(__dirname, 'views'));
 // required for passport
 app.use(session({ 
 	secret: 'ilovescotchscotchyscotchscotch',
@@ -52,6 +54,13 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 app.use(express.static(__dirname + '/public'));
+app.locals._ = _;
+
+/*app.locals.divisionName = function(division) {
+  Division.findOne({value: division}, function(err, result){
+  	return result.div_name;  	
+  });
+}*/
 
 // Executed when the incoming request is not matching any route
 /*app.use("*",function(req,res){ 

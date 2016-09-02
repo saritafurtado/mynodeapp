@@ -57,18 +57,8 @@ var teamSchema = mongoose.Schema({
 		type: [String],
 		label: "Divisions"
 	},
-	'class_divisions':{
-		type: [Object],
-		label: "Class Divisions",
-		optional: true
-	},
-	'class_divisions.$.class': {
-		type: String,	
-		optional: true
-	},
-	'class_divisions.$.div': {
-		type: [String],
-		optional: true
+	class_divisions:{
+		type: [],
 	},
 	website_url: {
 		type: String,

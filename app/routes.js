@@ -1,10 +1,11 @@
 var Activity = require('./models/activities');
 var User  = require('../app/models/user');
 var Team = require('./models/team');
+var TeamMembers = require('./models/teamMembers');
 var Division = require('./models/division');
 var slugify = require('slugify');
-
-module.exports = function(app, passport, controllers) {
+var _ = require('underscore');
+module.exports = function(app, passport) {
 
     // =====================================
     // HOME PAGE (with login links) ========
@@ -108,8 +109,11 @@ module.exports = function(app, passport, controllers) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/dashboard', isLoggedIn, function(req, res) {
-        res.render('dashboard.ejs', {
-            user : req.user // get the user out of session and pass to template
+        Team.find({"co_captains": { $in:[req.user._id] } }, function(err, myt){ 
+            res.render('dashboard.ejs', {
+                user : req.user, // get the user out of session and pass to template
+                myTeams: myt
+            });
         });
     });
 
@@ -125,22 +129,89 @@ module.exports = function(app, passport, controllers) {
     });
 
     app.post('/create-team', function(req,res){
-        console.log(req.body.team_name);
         var slug = slugify(req.body.team_name, '-');
+        var classes = [];
+        var m_divisions = req.body.M_team_divisions;
+        var w_divisions = req.body.W_team_divisions;
+        var mx_divisions = req.body.MX_team_divisions;
+        
+        if (m_divisions.length) {
+            classes.push('M');
+        }
+        var w_divisions = req.body.W_team_divisions;
+        if (w_divisions.length) {
+            classes.push('W');
+        }
+        var mx_divisions = req.body.MX_team_divisions;
+        if (mx_divisions.length) {
+            classes.push('MX');
+        }
+        var class_divisions = []; 
         var newTeam = new Team();
+        var teamMembers = new TeamMembers();
+        if (classes.length) {
+            classes.forEach(function(val){
+                if(val=="M" && m_divisions.length >0 ){
+                    class_divisions.push({
+                        "class":val,
+                        "div":m_divisions
+                    });
+                }
+                if(val=="W" && w_divisions.length>0){
+                    class_divisions.push({
+                        "class":val,
+                        "div":w_divisions
+                    })
+                }
+                if(val=="MX"  && mx_divisions.length>0){
+                    class_divisions.push({
+                        "class":val,
+                        "div":mx_divisions
+                    })
+                }
+            });
+        }
+        
+        var array3 = m_divisions.concat(w_divisions);
+        var all_divs = array3.concat(mx_divisions);
+        var divisions = [];    
+        all_divs.forEach(function(div){
+            
+            if(divisions.indexOf(div) === -1) 
+                divisions.push(div);
+        });
+        
+        newTeam.captain_id = req.user._id;
+        newTeam.co_captains = [req.user._id];
         newTeam.team_name = req.body.team_name;
         newTeam.country = req.body.country;
         newTeam.province = req.body.province;
         newTeam.city = req.body.city;
+        newTeam.classes = classes;
+        newTeam.divisions = divisions;
+        newTeam.class_divisions= class_divisions;
         newTeam.sponsor = req.body.sponsor;
-        newTeam.facebook_page_url = req.body.facebook_page_url;
+        newTeam.facebook_page_url = req.body.team_facebook;
         newTeam.twitter_handle = req.body.twitter_handle;
         newTeam.youtube_link = req.body.youtube_link;
+        newTeam.phone_number = req.body.team_phone_number;
+        newTeam.email = req.body.team_email;
+        newTeam.website_url = req.body.team_website;
         newTeam.slug = slug;
-        newTeam.captain_id = req.user._id;
-        newTeam.co_captains = [req.user._id];
+
+        console.log(newTeam);
         newTeam.save(function(err){
             Team.find({}, function(err, tms) {
+                teamMembers.team_id = tms._id;
+                teamMembers.member_id = req.user._id;
+                teamMembers.member_name = req.user.firstname + " " + req.user.lastname;
+                teamMembers.request_status = 2;
+                teamMembers.email = req.user.local.email;
+                teamMembers.date = new Date();
+                teamMembers.accepted_date = new Date();
+                teamMembers.active = 1;
+                teamMembers.save();
+
                 Division.find({}, function(err, docs){
                     res.render('teams.ejs', {
                         user : req.user, // get the user out of session and pass to template
@@ -149,7 +220,9 @@ module.exports = function(app, passport, controllers) {
                     });
                 });
             });
-        })
+        });
+
+
     });
     
     app.get('/teams', function(req,res) {
@@ -161,6 +234,25 @@ module.exports = function(app, passport, controllers) {
                     divisions: docs
                 });
             });
+        });
+    });
+
+    app.get('/team-view/:slug', function(req,res) {
+        Team.find({slug:req.params.slug}, function(err, tm) {
+            if(tm){
+                console.log(tm[0]);
+                Division.find({}, function(err, docs){
+                    TeamMembers.find({}, function(err, membs){ 
+                        res.render('teamView.ejs', {
+                            user : req.user, // get the user out of session and pass to template
+                            teamDetails:tm,
+                            divisions: docs,
+                            teamMembers: membs
+                            //captian: captain
+                        });
+                    });
+                });
+            }
         });
     });
     
@@ -197,3 +289,4 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
+

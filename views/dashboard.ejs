@@ -210,7 +210,7 @@
 								</div>
 								<!-- {{#if Template.subscriptionsReady}} -->
 									
-										
+									<% myTeams.forEach(function(team){ %>
 										<div class="row my_teams">
 											<div class="col-md-3">
 												
@@ -218,31 +218,15 @@
 												
 											</div>
 											<div class="col-md-9">
-												<h3><a href="/team-view/liselle-team">Liselle Team</a></h3>
+												<h3><a href="/team-view/<%= team.slug %>"><%= team.team_name %></a></h3>
 												<ul class="dashboard-team-members">
-													<li>Goa, India</li>
+													<li><%= team.province %>, <%= team.country %></li>
 													<li>3 members</li>
 												</ul>
 											</div>
 										</div>
-										
-										<div class="row my_teams">
-											<div class="col-md-3">
-												
-												<img src="/images/Default-Team-Images.png" class="img-circle">
-												
-											</div>
-											<div class="col-md-9">
-												<h3><a href="/team-view/dccper-team">DCCPER Team</a></h3>
-												<ul class="dashboard-team-members">
-													<li>Goa, India</li>
-													<li>1 members</li>
-												</ul>
-											</div>
-										</div>
-										
-									  
-									
+									<% }); %>				
+									  								
 										
 										<div class="row mem_teams hide">
 											<div class="col-md-3">

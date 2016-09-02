@@ -105,7 +105,7 @@
 								                           	<label for="<%= doc.value %>">
 								                            	<span class="check"></span>
 								                            	<span class="box"></span>
-								                            	<%= doc.div_name %>
+								                            	<%= doc %>
 								                            </label>
 								                        </li>
 					                                <% }); %>
@@ -139,9 +139,15 @@
 						            <tr class="">
 						                  <td class=""></td>
 						                  <td class=""><img src="/images/Default-Team-Images.png" class="img-circle"></td>
-						                  <td class="_id"><a href="/team-view/team-transplant" class="listing-title"><%= doc.team_name %></a><button id="delete_team" type="button" class="listing-delete">Delete Team</button></td>
+						                  <td class="_id"><a href="/team-view/<%= doc.slug %>" class="listing-title"><%= doc.team_name %></a><button id="delete_team" type="button" class="listing-delete">Delete Team</button></td>
 						                  <td class="location"><%= doc.city %>, <%= doc.province %></td>
-						                  <td class="category"><ul class="list-classes"><li><span class="list-class" data-toggle="tooltip" title="">Com<div class="class-tooltip">Community</div></span></li><li><span class="list-class" data-toggle="tooltip" title="">OT<div class="class-tooltip">Out-of-town</div></span></li><li><span class="list-class" data-toggle="tooltip" title="">Or<div class="class-tooltip">Other</div></span></li></ul></td>
+						                  <td class="category">
+						                  	<ul class="list-classes">
+						                  		<% doc.divisions.forEach(function(div){ %>
+						                  		<li><span class="list-class" data-toggle="tooltip" title=""><%= div %><div class="class-tooltip"><%= div %></div></span></li>
+						                  		<% }); %>
+						                  	</ul>
+						                  </td>
 						                  <td class=""></td>
 						            </tr>
 						            <% }); %>

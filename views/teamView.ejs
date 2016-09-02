@@ -1,0 +1,923 @@
+<!doctype html>
+<html>
+    <% include /common/head %>
+    <body>
+        <% include /common/loggedin_nav %> 
+			<div class="success-message hide">
+				<p><i class="ti-check"></i><span> You have successfully created a new team - Fiery Lizard </span></p>
+				<a href="#"><i class="ti-close close-message"></i></a>
+			</div>
+
+			<div class="error-message hide">
+				<p><i class="ti-alert"></i><span> You have errors in - Fiery Lizard</span></p>
+				<a href="#"><i class="ti-close close-message"></i></a>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="main-content-header">
+						<div class="col-md-2 custom-header-col-left">
+							<div class="header-profile">
+								<% if(teamDetails != undefined && teamDetails.logo_url != undefined){ %>
+									<img class="img-circle" src="<%= teamDetails.logo_url %>">
+								<% }
+								else { %>
+									<img src="/images/Default-Team-Images.png" class="img-circle">
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-8 custom-header-col-right">
+							<div class="row">
+								<div class="col-md-12">
+									<h2> <%= teamDetails._id %><% if(teamDetails.team_name != undefined){ %> <%= teamDetails.team_name %> <% } %></h2>
+									<div class="label-orange">Recruit Me</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12 header-description">
+										<p><% if(teamDetails.team_description != undefined){ %> <%= teamDetails.team_description %> <% } %></p>
+									<div class="header-skills">
+										<ul>
+											<% if(user != undefined){ %>
+												<% if (teamDetails.recruit == 1){ %><li><a href="#" id="joinTeam" class="btn btn-primary">Join Team</a></li><% } %>
+											<%  %>
+											<% if (_.contains(teamDetails.co_captains, user._id)) { %>
+											<li class="dropdown">
+											  <a href="#" class="skills-arrow dropdown-toggle" id="teamHeaderOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+											    <i class="ti-angle-down"></i>
+											  </a>
+											  
+											  <ul class="dropdown-menu" aria-labelledby="teamHeaderOptions">
+											   	<li><a href="/team-edit/<%= teamDetails.slug %>">Edit team</a></li>
+											  </ul>
+											</li>
+											 <% } }%>
+										</ul>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!--/main-content-header-->
+
+				<div class="row">
+					<div class="col-md-12 dashboard-content" >
+						<section class="row dashboard-location-section">
+							<div class="content-padding">
+								<div class="col-md-4">
+									<div class="dashboard-location">
+										<!-- {{#if hasValidLatLan}}
+												{{> googleMap type=map name="map" options=mapOptions}}
+										{{else}} -->
+											<img src="/images/location-img.jpg" />
+										<!-- {{/if}} -->
+									</div>
+								</div>
+								<div class="col-md-8">
+									<div class="row">
+										<div class="col-md-12">
+											<p class="label-bold">Location</p>
+											<p><%= teamDetails.city %>, <%= teamDetails.province %>, <%= teamDetails.country %></p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<h3>CLASS</h3>
+										</div>
+									</div>
+									<% teamDetails.class_divisions.forEach(function(doc){ %>
+									<div class="row">
+										<div class="col-md-2">
+											<h4><%= doc.class %></h4>
+										</div>
+										<div class="col-md-10">
+											<% doc.div.forEach(function(div){ %>
+											<span class="list-class"><%= div %>
+												<div class="class-tooltip"><% divisions.forEach(function(form){ %><%= div %> <% }); %></div>
+											</span>
+											<% }); %>
+										</div>
+									</div>
+									<% }); %>
+								</div>
+							</div>
+						</section>
+
+						<!-- <section class="row dashboard-schedule">
+							<div class="content-padding">
+								{{> teamSchedule}}
+							</div>
+						</section> 
+						{{#if src3}}
+						<section class="row dashboard-sponsors">
+							<div class="content-padding">
+								<div class="col-md-12">
+									<h3>SPONSORS</h3>
+									{{#each src3}}
+									<img src="{{sponsors}}">
+									{{/each}}
+								</div>
+							</div>
+						</section>
+						{{/if}}
+						<section class="row dashboard-discussions">
+							<div class="content-padding">
+								<div class="col-md-12">
+									<div class="row">
+										<div class="col-md-12">
+											<h3>DISCUSSIONS <span class="total-comments">{{teamDiscussionCount}} comments</span></h3>
+										</div>
+									</div>
+									{{#each team_discussion}}
+										<div class="row">
+											<div class="col-md-1">
+												<img src="{{displayProfile user_id}}" class="img-circle">
+											</div>
+											<div class="col-md-11">
+													<div class="discussions-post team-discussions-{{team_id}}">
+														<h5>{{userNameOption user_id}} <span class="comment-timestamp">{{dateFormate2 created_at}}, {{time created_at}}</span> <span class="label-gray">{{notifyEveryoneToPublic notify_type}}</span></h5>
+														{{#if readMore discussion_msg}}
+														<p class="disc_{{_id}}">{{{readMore discussion_msg}}}</p>
+														{{else}}
+														<p>{{{tabs discussion_msg}}}</p>
+														{{/if}}
+														<a id="reply-1" href="#" class="small reply">Reply</a> 
+														{{#if readMore discussion_msg}}
+														| <a href="#" class="small readMore readMore_{{_id}}">Read More</a>
+														{{/if}}
+													</div>
+
+													<div id="teamReplyForm_{{this._id}}" class="row hide">
+														<form  class="post-reply " action="post">
+															<div class="col-md-1">
+																<img src="{{displayProfile currentUser._id}}" class="img-circle">
+															</div>
+															<div class="col-md-11">
+																<div class="discussions-post-input focus-tooltip">
+																	<form id="teamDiscussionForm" action="post">
+																		<textarea id="reply_msg_{{this._id}}" class="editable_reply form-control" rows="3" placeholder="Make an announcement"></textarea>
+																		<p class="small-format">Formatting options available by selecting text</p>
+
+																		<div class="text-right">
+																			<a id="replySubmit" href="#" class="btn btn-primary replySubmit">Post</a>
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</form>
+													</div>
+													{{#each team_discussion_reply this._id}}
+													<div class="row discussions-post-reply">
+														<div class="col-md-1">
+															<img src="{{displayProfile user_id}}" class="img-circle">
+														</div>
+														<div class="col-md-11">
+															<h5>{{userNameOption user_id}} <span class="comment-timestamp">{{dateFormate2 created_at}}, {{time created_at}}</span></h5>
+															{{#if readMore discussion_reply_msg}}
+															<p class="replyDisc_{{_id}}">{{{readMore discussion_reply_msg}}}</p>
+															{{else}}
+															<p>{{{tabs discussion_reply_msg}}}</p>
+															{{/if}}
+															{{#if readMore discussion_reply_msg}}
+															<a href="#" class="small readMoreReplies readMoreReplies_{{_id}}">Read More</a>
+															{{/if}}
+														</div>
+													</div>
+													{{/each}}
+											</div>
+										</div>
+									{{/each}}
+									{{#if moreResults}}
+									<div  id="showMoreResults" class="row">
+										<div class="col-md-12 text-center">
+											<button class="btn-loading"><i class="ti-reload"></i> Load More</button>
+										</div>
+									</div>
+									{{/if}}
+									{{#if isTeamMember _id currentUser._id}}
+									<div class="row">
+										<div class="col-md-1">
+											<img src="{{displayProfile currentUser._id}}" class="img-circle">
+										</div>
+										<div class="col-md-11">
+											<div class="discussions-post-input">
+												<form id="teamDiscussionForm" action="post">
+													<div class="focus-tooltip">
+														<textarea id="discussion_msg" class="editable form-control" rows="3" placeholder="Discussion"></textarea>
+														<p class="small-format">Formatting options available by selecting text</p>
+													</div>
+													<div class="text-right">
+														<span class="notify-select-margin">
+															<span class="notify-text">Notify</span> 
+															<select id="view_type" class="select-custom form-control">
+																<option value="team">Team</option>
+																<option value="everyone">Public</option>
+																{{#if is_coCaptain this.slug currentUser._id}}
+																<option value="captain">Captain</option>
+																{{/if}}
+															</select>
+														</span>
+														<a id="saveDisc" href="#" class="btn btn-primary disabled_button" disabled="disabled">Post</a>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+									{{/if}}
+								</div>
+							</div>
+						</section>-->
+
+						<section class="row dashboard-members">
+							<div class="col-md-12">
+								<div class="content-padding">
+										<div class="row">
+											<div class="col-md-3">
+												<h3>TEAM MEMBERS</h3>
+											</div>
+											<div class="col-md-9">
+												<div class="dashboard-schedule-nav no-margin text-right">
+													<ul class="nav nav-pills">
+													  <li role="presentation"  id="alpha" ><a id="whole_schdule" href="#">Alphabetical</a></li>
+													  <li role="presentation" id="recent" class="active"><a href="#">Recent</a></li>
+													</ul>
+													<% if (user != undefined && (teamDetails.co_captains.indexOf(user._id) > -1)) { %>
+													<a href="" id="sendInvite" class="btn btn-thin btn-phantom-green">Send invite</a>
+													<% } %>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="search-members">
+													<div class="input-group">
+													  <span class="input-group-addon"><i class="ti-search"></i></span>
+													  <input type="text" id="searchByUName" class="form-control" placeholder="Search team members">
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="dasboard-team-table-container">
+													<table class="table dashboard-table dasboard-team-table responsive-table">
+														<thead>
+															<tr>
+																<% if (user != undefined && _.contains(teamDetails.co_captains, user._id)) { %>
+																<th class="col-md-1">
+																	<div class="md-checkbox">
+											                           	<input id="select_all_members" class="md-check" type="checkbox">
+											                           	<label for="select_all_members">
+											                            	<span class="check"></span>
+											                            	<span class="box"></span>
+											                            </label>
+											                       </div>
+																</th>
+																<% } %>
+																<th class="col-md-4">NAME</th>
+																<th class="col-md-2">SIDE</th>
+																<th class="col-md-2">SKILL</th>
+																<th class="col-md-2">JOINED ON</th>
+															</tr>
+														</thead>
+														<tbody>
+															<% teamMembers.forEach(function(mem){  %>
+															<tr>
+																<% if (user != undefined && _.contains(teamDetails.co_captains, user._id)) { %>
+																<td>
+																	<div class="md-checkbox">
+											                           	<input id="<%= mem._id %>" name="team_members[]" value="<%= mem.member_id %>" class="md-check manage-team-checkbox" type="checkbox">
+											                           	<label for="<%= mem._id %>">
+												                            <span class="check"></span>
+												                            <span class="box"></span>
+											                            </label>
+											                       </div>
+																</td>
+																<% } %>
+																<td>
+																	<div class="dasboard-team-table-th">NAME</div>
+																	<div class="dasboard-team-member-image">
+																		<img src="{{displayProfile member_id}}" class="img-circle"> 
+																	</div>
+																	<div class="dasboard-team-member-content">
+																		<a href="#" class="list-title">
+																			<% if (user != undefined && _.contains(teamDetails.co_captains, user._id)) { %>
+																				<%= mem.member_name %>
+																			<% }
+																			else{ %>
+																				{{userNameOption member_id}} 
+																			<% } %></a>
+																		<p>{{gender member_id}} 
+																			<% if (user != undefined && teamDetails.captain_id == user._id) { %>
+																				<span class="label-orange">Captain</span>
+																			<% } %>
+																			<% if (_.contains(teamDetails.co_captains, mem.member_id)) { %>
+																				<span class="label-gray">CO-CAPTAIN</span>
+																			<% } %>
+																		</p>
+																		<% if (user != undefined && _.contains(teamDetails.co_captains, user._id)) { %>
+																			<p>
+																				<a id="msgMembers" href="">Message</a>
+																				{{#if showCaptains ../slug member_id}}
+																					{{#if is_superAdmin}} 
+																					<span class="table-hidden">|</span>
+																						<a class="remove_cocaptain" href="">Remove co-captain</a>
+																					{{/if}}
+																				{{else}}
+																					<span class="table-hidden">|</span>
+																					 <a id="co_captain" href="">Make co-captain</a>
+																				{{/if}}
+																			</p>
+																		<% } %>
+
+																	</div>
+																</td>
+																<td>
+																	<div class="dasboard-team-table-th">SIDE</div>
+																	<p class="team-table-side">{{userPaddlingSide member_id}}
+																	</p>
+																</td>
+																<td>
+																	<div class="dasboard-team-table-th">SKILL</div>
+																	<p class="team-table-side">
+																	{{userSkillLevel member_id}}
+																	</p>
+																</td>
+
+																<td>
+																	<div class="dasboard-team-table-th">JOINED ON</div>
+																	<p class="team-table-side">{{dateFormate1 accepted_date}}
+																	</p>
+																</td>
+															</tr>
+															<% }); %>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										{{#if is_coCaptain team_details.slug currentUser._id}}
+											{{#if pendingRequestMembers}}
+												<div class="row">
+													<div class="col-md-6">
+														<p class="label-bold">Pending Requests</p>
+													</div>
+													<div class="col-md-6">
+														<div class="text-right">
+															<a id="resendInvite" href="#" class="btn  btn-thin btn-phantom-green">Resend invite</a>
+															<a id="cancel_invite" href="#" class="btn  btn-thin btn-phantom-orange">Remove</a>
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-md-12">
+														<table class="table dashboard-table pending-request-table responsive-table">
+															<thead>
+																<tr>
+																	<th class="col-md-1">
+																		<div class="md-checkbox">
+												                           	<input id="select_all" name="select_all" class="md-check" type="checkbox">
+												                           	<label for="select_all">
+												                            	<span class="check"></span>
+												                            	<span class="box"></span>
+												                            </label>
+												                       </div>
+																	</th>
+																	<th class="col-md-4">NAME</th>
+																	<th class="col-md-4">EMAIL</th>
+																	<th class="col-md-3">FIRST REQUEST</th>
+																</tr>
+															</thead>
+															<tbody>
+																{{#each pendingRequestMembers}}
+																	<tr>
+																		<td>
+																			<div class="md-checkbox">
+													                           	<input id="{{_id}}" name="pending_members[]" value="{{_id}}" class="md-check" type="checkbox">
+													                           	<label for="{{_id}}">
+														                            <span class="check"></span>
+														                            <span class="box"></span>
+													                            </label>
+													                       </div>
+																		</td>
+																		<td>
+																			<img src="{{displayProfile member_id}}" class="img-circle"> 
+																			<a href="#" class="list-title">
+																				{{#if member_id}}
+																					{{UserFullName member_id}}
+																				{{else}}
+																					{{userNameByEmail email}}
+																				{{/if}}
+																			</a>
+																		</td>
+																		<td>
+																			{{email}}
+																		</td>
+																		<td>
+																			{{dateFormate1 date}}
+																		</td>
+																	</tr>
+																{{/each}}
+															</tbody>
+														</table>
+													</div>
+												</div>
+												{{/if}}
+										{{/if}}
+								</div>
+							</div>
+						</section>
+						
+						{{#if is_coCaptain team_details.slug currentUser._id}}
+							<section class="row dashboard-members team-edit-no-padding">
+								<div class="col-md-12">
+									<div class="dashboard-members-waiver-section">
+										<div class="content-padding">
+											<div class="row">
+												<div class="dashboard-members-notes">
+													<div class="col-md-3">
+														<h3>WAIVERS</h3>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="dasboard-team-waiver-table-container">
+														<table class="table dashboard-table dasboard-team-waiver-table responsive-table">
+															<thead>
+																<tr>
+																	<th class="col-md-4">WAIVER NAME</th>
+																	<th class="col-md-4">EVENT NAME</th>
+																	<th class="col-md-2"></th>
+																	<th class="col-md-2"></th>
+																</tr>
+															</thead>
+															<tbody>
+																{{#each waivers}}
+																<tr>
+																	<td>
+																		<div class="dasboard-team-member-content">
+																			<a href="#" class="list-title">
+																				{{waiver_name}}
+																			</a>
+																		</div>
+																	</td>
+																	<td>
+																		{{eventName event_id}} 
+																	</td>
+																	<td class="text-center">
+																		<a class="advanced-waiver-toggle waiverMembers"><i id="arrow_{{_id}}" class="ti-angle-down"></i></a>
+																	</td>
+		 
+																	<td class="text-right">
+																	<a id="viewWaiver" href="{{waiver_url}}" target="_blank" class="btn btn-thin btn-phantom-green">View</a>
+																	</td>
+																</tr>
+																<tr class="waiver-info-memebers hide" id="waiver_{{_id}}">
+																	<td class="waiver-btns-col" colspan=4>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<a class="btn waiver-info-btn sendWaiver">Send / Resend Waiver</a>
+																			</div>
+																		</div>	
+																		
+																			<table class="table inner-table dashboard-table dasboard-team-waiver-info-table responsive-table">
+																				<thead>
+																					<tr>
+																						<th style="width: 30px;">
+																							<div class="md-checkbox">
+																								<input id="selectAllWaiverMembers_{{_id}}" class="md-check select_all_waiver_members" type="checkbox">
+																								<label for="selectAllWaiverMembers_{{_id}}">
+																									<span class="check"></span>
+																									<span class="box"></span>
+																								</label>
+																							</div>
+																						</th>
+
+																						<th class="col-md-2">NAME</th>
+																						<th class="col-md-2">FIRST SENT ON <a class="advanced-waiver-toggle waiverMembersInfoSent"><i id="arrow_info_sent_{{_id}}" class="sortWaiverSent ti-arrow-down"></i></a>
+																						</th>
+
+																						<th class="col-md-2">SIGNED ON <a class="advanced-waiver-toggle waiverMembersInfoSigned"><i id="arrow_info_signed_{{_id}}" class="sortWaiverSigned ti-arrow-down"></i></a></th>
+																						<th class="col-md-2">CONTACT</th>
+																						<th class="col-md-2">PHONE</th>
+																						<th class="col-md-2">MEDICAL CONDITION</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					{{#each waiverMembers _id}}
+																					<tr>
+																						<td>
+																							<div class="md-checkbox">
+																								<input id="team_member_{{_id}}" name="waiver_members_{{../_id}}[]" value="{{member_id}}" class="md-check manage-team-checkbox waiver_members_{{../_id}}" type="checkbox" {{checkSignedWaiver _id}}>
+																								<label for="team_member_{{_id}}">
+																									<span class="check"></span>
+																									<span class="box"></span>
+																									&nbsp;
+																								</label>
+																							</div>
+																						</td>
+																						<td>		 
+																							{{UserFullName member_id}}
+																						</td>
+																						<td>{{#if waiver_send_date}}{{dateFormate1 waiver_send_date}}{{/if}}</td>
+																						<td>{{#if waiver_signed_date}}{{dateFormate1 waiver_signed_date}}{{/if}}</td>
+																						<td>{{contact_name}}</td>
+																						<td>{{contact_number}}</td>
+
+																						<td class="text-center">
+																							{{#if medical_condition_desc}}
+																							<div class="note-tooltip"><i class="ti-notepad"></i><div class="class-tooltip">{{medical_condition_desc}}</div></div>
+																							{{/if}}
+																						</td>
+																					</tr>
+																					{{/each}}
+																				</tbody>
+																			</table>
+																		
+																	</td>
+																</tr>
+																{{/each}}
+
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						{{/if}}
+
+		                <section class="row dashboard-members-footer">
+		                	{{#if teamFiles}}
+		                		{{#if isTeamMember _id currentUser._id}}
+			                    	<div class="col-md-6 dashboard-members-notes-border">
+			                    		<div class="dashboard-members-notes-section">
+			                    			<div class="content-padding">
+												<div class="row">
+													<div class="dashboard-members-notes">
+														<div class="col-md-3">
+															<h3>NOTES</h3>
+														</div>
+														<div class="col-md-9 text-right">
+															<div class="search-notes">
+																<div class="input-group">
+																  <span class="input-group-addon"><i class="ti-search"></i></span>
+																  <input type="text" id="searchByFName" class="form-control" placeholder="Search notes">
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												{{#each teamFiles}}
+												<div class="row equal dashboard-notes">
+													<div class="col-md-12">
+														<img src="{{fileType file_name}}" class="dashboard-notes-icon" />
+														<p><a id="download" target="_blank" href="#">{{ halfFilename file_name}}</a></p>
+														<p class="small">{{uploaded_by_name}}</p>
+													</div>
+												</div>
+												{{/each}}
+											</div>
+										</div>
+			                    	</div>
+		                    	{{/if}}
+		                    {{/if}}
+		                    	<div class="col-md-6 dashboard-contact">
+		                    		<div class="content-padding">
+			                    		<div class="row">
+			                    			<div class="col-xs-12">
+			                    				<h3>Contact</h3>
+			                    			</div>
+			                    		</div>
+			                    		{{#if twitter_handle}}
+			                    		<div class="row equal">
+			                    			<div class="col-xs-2 col-md-1 vertical-center">
+			                    				<i class="ti-twitter-alt"></i>
+											</div>
+											<div class="col-xs-10 col-md-11 vertical-center">
+												<p><a target="_blank" href="{{twitter_handle}}">{{editUrl twitter_handle '@'}}</a></p>
+											</div>
+			                    		</div>
+			                    		{{/if}}
+			                    		{{#if facebook_page_url}}
+			                    		<div class="row equal">
+			                    			<div class="col-xs-2 col-md-1 vertical-center">
+			                    				<i class="ti-facebook"></i>
+											</div>
+											<div class="col-xs-10 col-md-11 vertical-center">
+												<p><a target="_blank" href="{{addHttp facebook_page_url}}">{{linkWithoutPrefix facebook_page_url}}</a></p>
+											</div>
+			                    		</div>
+			                    		{{/if}}
+			                    		{{#if youtube_link}}
+			                    		<div class="row equal">
+			                    			<div class="col-xs-2 col-md-1 vertical-center">
+			                    				<i class="ti-youtube"></i>
+											</div>
+											<div class="col-xs-10 col-md-11 vertical-center">
+												<p><a target="_blank" href="{{youtube_link}}">{{linkWithoutPrefix youtube_link}}</a></p>
+											</div>
+			                    		</div>
+			                    		{{/if}}
+			                    		{{#if phone_number}}
+			                    		<div class="row equal">
+			                    			<div class="col-xs-2 col-md-1 vertical-center">
+			                    				<i class="fa fa-phone"></i>
+											</div>
+											<div class="col-xs-10 col-md-11 vertical-center">
+												<p>{{phone_number}}</p>
+											</div>
+			                    		</div>
+			                    		{{/if}}
+			                    		{{#if email}}
+			                    		<div class="row equal">
+			                    			<div class="col-xs-2 col-md-1">
+			                    				<i class="ti-email"></i>
+											</div>
+											<div class="col-xs-10 col-md-11">
+												<p><a href="mailto:{{email}}">{{email}}</a></p>
+											</div>
+			                    		</div>
+			                    		{{/if}}
+			                    		{{#if website_url}}
+			                    		<div class="row equal">
+			                    			<div class="col-xs-2 col-md-1">
+			                    				<img src="/images/web.png">
+											</div>
+											<div class="col-xs-10 col-md-11">
+												<p><a target="_blank" href="{{addHttp website_url}}">{{linkWithoutPrefix website_url}}</a></p>
+											</div>
+			                    		</div>
+			                    		{{/if}}
+		                    		</div>
+		                    	</div>
+		                	
+		                </section>
+					</div>
+				</div>
+			</div><!--/container-->
+			
+
+			<!-- Start Modals --> 
+			<div class="modal fade" id="joinTeamModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form id="joinTeamForm">
+							<div class="modal-body">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+								
+								<span id="tj_err_msgs" class=""></span>
+								<span id="tj_succ_msgs" class=""></span>
+
+								<h3>Join Team</h3>
+								Message: <textarea rows="5" id="join_team_msg" class="form-control" placeholder="Enter your message here..."></textarea>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary btn-fullwidth">Send Request</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="sendInviteModal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      	<div class="modal-body">
+			      		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+					    <div class="row">
+					      	<div class="col-md-12">
+					      		
+			       				<h3>Send invite</h3>
+					      	</div>
+					    </div>
+					    <form id="sendInviteForm">
+						    <div class="row">
+								<div class="col-md-12">
+									<span id="err_msg" ></span>
+									<span id="new_err_msg" ></span>
+									<span id="team_err_msg" ></span>
+									<span id="succ_msg" ></span>
+									<div class="form-group">
+										<label>Email address</label>
+										<input type="text" class="form-control" name="member_email" id="member_email" placeholder="john@gmail.com, jerry@yahoo.ca, zoe@hotmail.com">
+										<span id="" class="error-message hide"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Message</label>
+										<textarea class="form-control" id="invite_team_msg" rows="5" placeholder="Enter your message here..."></textarea>
+										<span id="" class="error-message hide"></span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+						      		<p>This message will be sent immediately</p> 
+									<button id="sendInviteSubmit" class="btn btn-primary btn-fullwidth">Send invite</button>
+								</div>
+							</div>
+						</form>
+			        </div><!--modal-body-->
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+			<div class="modal fade" id="messageTeamModal" >
+			  <div class="modal-dialog modal-md" role="document">
+			    <div class="modal-content">
+			      <div class="modal-body manage-team">
+			      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+			        
+			        
+			        	<div class="row">
+			        		<div class="col-md-12">
+			        		<span id="msg_err_msgs" class=""></span>
+							<span id="msg_succ_msgs" class=""></span>
+			        			<h3>Send a message</h3>
+			        		</div>
+			        	</div>
+			        	<div class="row">
+			        		<div class="col-md-12">
+				        		<form id="messageForm">
+					        		<div class="row">	
+					        			<div class="col-md-12">
+								        	<div class="form-group">
+											    <label for="teamName" class="no-margin">To</label>
+											    <p class="resend-invite-name">{{messageLabel}}</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+											    <label for="teamMessage">Message</label>
+											    <textarea name="teamMessage" id="teamMessage" class="form-control" rows="3"></textarea>
+											    <p>This message will be sent immediately</p> 
+											    <input type="hidden" value="{{teamMessage}}" id="to_members_arr">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<button type="submit" tabindex="0" class="btn btn-primary btn-fullwidth">Send message</button>
+
+										</div>
+									</div>
+						        </form>
+			        		</div>
+		        		</div>
+			      </div>
+			      
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="confirmDeleteModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+							<span id="rem_err_msgs" class=""></span>
+							<span id="rem_succ_msgs" class=""></span>
+							<div class="row">
+						      	<div class="col-md-12">
+						      		
+			       					<h3>Remove User</h3>
+						      	</div>
+					      	</div>
+					      	<div class="row">
+						      	<div class="col-md-12">
+						      		{{#if cancelInvite}}
+									Do you really want to remove this member's invitation? 
+									{{else}}
+									Do you really want to remove this member from team?<br>
+									Once removed, member will be removed from all rosters.
+									{{/if}}
+						      	</div>
+					      	</div>
+
+					      	<div class="row">
+						      	<div class="col-md-12">
+						      		<p>They will receive this message immediately.</p> 
+									<button id="deleteMember" type="submit" class="btn btn-primary btn-fullwidth">Delete</button>
+						      	</div>
+					      	</div>					
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="resendInviteModal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      	<div class="modal-body">
+			      		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+					    <form id="resendInviteForm">
+						    <div class="row">
+						      	<div class="col-md-12">
+						      		<span id="resend_err_msg" ></span>
+									<span id="resend_succ_msg" ></span>
+						      		
+						      	</div>
+						    </div>
+						    <div class="row">	
+			        			<div class="col-md-12">
+			        				<h3>Resend invite</h3>
+						        	<div class="form-group">
+									    <label for="teamName" class="no-margin">To</label>
+									    <p class="resend-invite-name">{{resendInviteIds}}</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group no-margin">
+										<label>Message</label>
+										<textarea class="form-control" id="reinvite_team_msg" rows="5" placeholder="Enter your email message here..."></textarea>
+										<span id="" class="error-message hide"></span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+									<button type="submit" class="btn btn-primary btn-fullwidth">Resend invite</button>
+								</div>
+							</div>
+						</form>
+			        </div><!--modal-body-->
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+			<div class="modal fade" id="sendWaiverModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+							<div class="row">
+								<div class="col-md-12">
+									<h3>Send waiver</h3>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<span id="waiver_sent_err" ></span>
+									<span id="waiver_sent_succ" ></span>
+									<span id="waiver_reminder_succ" ></span>
+									<p>The selected paddler(s) will recieve an email request to sign their waiver.</p>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<button id="sendWaiverBtn" type="button" class="btn btn-primary btn-fullwidth">Send</button>
+								</div>
+							</div>					
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="makeCocaptainModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ti-close"></i></span></button>
+							<div class="row">
+								<div class="col-md-12">
+									<h3>Remove Captain</h3>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12"><!-- 
+								<span id="waiver_reminder_err" ></span>
+								<span id="waiver_reminder_succ" ></span> -->
+									<p>Cannot remove captain. Assign co-captain before removing.</p>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<button type="reset" class="btn btn-primary btn-fullwidth" data-dismiss="modal" aria-label="Close">Ok</button>
+								</div>
+							</div>					
+						</div>
+					</div>
+				</div>
+			</div>
+		<% include /common/footer %> 

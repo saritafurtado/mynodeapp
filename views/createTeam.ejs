@@ -169,7 +169,7 @@
 														<span id="fb_err" class="error-message hide"></span>
 														<div class="input-group">
 														  <span class="input-group-addon">facebook.com/</span>
-														  <input type="text" id="team_facebook" class="form-control" placeholder="username">
+														  <input type="text" name="team_facebook" class="form-control" placeholder="username">
 														</div>
 													</div>
 												</div>
@@ -181,7 +181,7 @@
 													<span id="youtube_err" class="error-message hide"></span>
 														<div class="input-group">
 														  <span class="input-group-addon">youtube.com/</span>
-														  <input type="text" id="team_youtube" class="form-control" placeholder="username">
+														  <input type="text" name="team_youtube" class="form-control" placeholder="username">
 														</div>
 													</div>
 												</div>
@@ -191,7 +191,7 @@
 													</div>
 													<div class="col-xs-10 col-md-11">
 														<span id="phone_err" class="error-message hide"></span>
-											    		<input type="tel" id="team_phone_number" class="form-control" placeholder="123-456-7890">
+											    		<input type="tel" name="team_phone_number" class="form-control" placeholder="123-456-7890">
 													</div> 
 												</div>
 
@@ -201,7 +201,7 @@
 													</div>										
 													<div class="col-xs-10 col-md-11">
 														<span id="email_err" class="error-message hide"></span>
-													    <input id="team_email" class="form-control" placeholder="example@example.com">
+													    <input name="team_email" class="form-control" placeholder="example@example.com">
 													</div> 
 												</div>
 												<div class="row equal">
@@ -210,7 +210,7 @@
 													</div>
 													<div class="col-xs-10 col-md-11">
 														<span id="website_err" class="error-message hide"></span>
-												    	<input type="text" id="team_website" class="form-control" placeholder="www.example.com" autofocus>
+												    	<input type="text" name="team_website" class="form-control" placeholder="www.example.com" autofocus>
 												    </div>
 												</div>
 
@@ -321,55 +321,7 @@
         var city = jQuery.trim($('#team_city').val());
         var province = jQuery.trim($('#team_province').val());
         var country = jQuery.trim($('#team_country').val());
-        var $m_divisions = $("input[type=checkbox][name='M_team_divisions[]']:checked");
-		if ($m_divisions.length) {
-			mdivisions = $m_divisions.map(function(){
-				return this.value;
-			}).get();
-			classes.push('M');
-		}
-		var $w_divisions = $("input[type=checkbox][name='W_team_divisions[]']:checked");
-		if ($w_divisions.length) {
-			wdivisions = $w_divisions.map(function(){
-				return this.value;
-			}).get();
-			classes.push('W');
-		}
-		var $mx_divisions = $("input[type=checkbox][name='MX_team_divisions[]']:checked");
-		if ($mx_divisions.length) {
-			mxdivisions = $mx_divisions.map(function(){
-				return this.value;
-			}).get();
-			classes.push('MX');
-		}
-		if (classes.length) {
-			var classes_divs = $.map(classes, function(val){
-				if(val=="M" && mdivisions.length>0){
-					return divs={
-						"class":val,
-						"div":mdivisions
-					}
-				}
-				if(val=="W" && wdivisions.length>0){
-					return divs={
-						"class":val,
-						"div":wdivisions
-					}
-				}
-				if(val=="MX"  && mxdivisions.length>0){
-					return divs={
-						"class":val,
-						"div":mxdivisions
-					}
-				}
-			});
-		}
-		var array3 = mdivisions.concat(wdivisions);
-		var all_divs = array3.concat(mxdivisions);
-		var uniqueDivs = [];
-		$.each(all_divs, function(i, el){
-		    if($.inArray(el, uniqueDivs) === -1) uniqueDivs.push(el);
-		});
+        
 		var team_phone = $('#team_phone_number').val();
 		var team_email = $('#team_email').val();
 		var team_facebook = $('#team_facebook').val();
